@@ -15,6 +15,8 @@ export default function UpdateProfileInformation({
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({
             name: user.name,
+            surname: user.surname,
+            birthday: user.birthday,
             email: user.email,
         });
 
@@ -47,10 +49,41 @@ export default function UpdateProfileInformation({
                         onChange={(e) => setData('name', e.target.value)}
                         required
                         isFocused
+                        placeholder="Insert you name"
                         autoComplete="name"
                     />
 
                     <InputError className="mt-2" message={errors.name} />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="surname" value="Surname" />
+
+                    <TextInput
+                        id="surname"
+                        className="mt-1 block w-full"
+                        value={data.surname}
+                        onChange={(e) => setData('surname', e.target.value)}
+                        placeholder="Insert you surname"
+                        isFocused
+                    />
+
+                    <InputError className="mt-2" message={errors.surname} />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="birthday" value="Birth Day" />
+
+                    <TextInput
+                        id="birthday"
+                        className="mt-1 block w-full"
+                        value={data.birthday}
+                        onChange={(e) => setData('birthday', e.target.value)}
+                        type="date"
+                        isFocused
+                    />
+
+                    <InputError className="mt-2" message={errors.birthday} />
                 </div>
 
                 <div>
@@ -63,6 +96,7 @@ export default function UpdateProfileInformation({
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
+                        placeholder="Insert you email"
                         autoComplete="username"
                     />
 
