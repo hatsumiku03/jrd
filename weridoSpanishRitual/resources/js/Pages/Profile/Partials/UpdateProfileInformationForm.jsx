@@ -62,7 +62,7 @@ export default function UpdateProfileInformation({
                     <TextInput
                         id="surname"
                         className="mt-1 block w-full"
-                        value={data.surname}
+                        value={data.surname  || ''}
                         onChange={(e) => setData('surname', e.target.value)}
                         placeholder="Insert you surname"
                         isFocused
@@ -77,7 +77,7 @@ export default function UpdateProfileInformation({
                     <TextInput
                         id="birthday"
                         className="mt-1 block w-full"
-                        value={data.birthday}
+                        value={data.birthday  || ''}
                         onChange={(e) => setData('birthday', e.target.value)}
                         type="date"
                         isFocused
