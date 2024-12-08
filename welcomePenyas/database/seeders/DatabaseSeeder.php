@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // | Crews | //
         Crew::factory()->create([
             'name' => 'Los Babus',
-            'logo' => 'placeholder',
+            'logo' => null,
             'capacity_people' => 666,
             'slogan' => 'Te voy a coger fill d',
             'color' => '',
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
 
         Crew::factory()->create([
             'name' => 'E S E N C I A',
-            'logo' => 'placeholder',
+            'logo' => null,
             'capacity_people' => 34,
             'slogan' => 'Nos arrollidaremos ante el general tablos',
             'color' => '',
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
 
         Crew::factory()->create([
             'name' => 'XICS',
-            'logo' => 'placeholder',
+            'logo' => null,
             'capacity_people' => 23,
             'slogan' => 'ANEM A GUANYAR',
             'color' => '',

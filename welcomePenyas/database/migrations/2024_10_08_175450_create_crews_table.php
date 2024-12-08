@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('crews', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo');
+            $table->string('logo')->nullable()->default(null);
             $table->string('slogan');
             $table->bigInteger('capacity_people');
             $table->date('foundation_date');

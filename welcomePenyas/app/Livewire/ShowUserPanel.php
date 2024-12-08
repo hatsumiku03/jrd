@@ -19,10 +19,6 @@ class ShowUserPanel extends Component
     // º User parameters º //
     public $userData = [];
 
-    public $name;
-    public $surname;
-    public $email;
-    public $role_id;
 
     // º Mount the user database data by id º //
     public function mount(){

@@ -18,8 +18,8 @@ class CrewFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'logo' => 'placeholder',
-            'capacity_people' => 666,
+            'logo' => null,
+            'capacity_people' => fake()->numberBetween(1, 1000),
             'slogan' => fake()->sentence(),
             'color' => fake()->colorName(),
             'foundation_date' => fake()->date('Y-m-d', 'now')

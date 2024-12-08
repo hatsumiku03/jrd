@@ -1,5 +1,4 @@
-{{-- ! Arreglar para que el scroll se quede fijo o el background ocupe todo ! --}}
-<div x-data="{show: @entangle('userCreation').live}" x-show="show" x-transition class="fixed inset-0 bg-black/50 flex items-center justify-center">
+<div x-data="{show: @entangle('userCreation').live}" x-show="show" class="fixed inset-0 bg-black/50 flex items-center justify-center">
     @if (session()->has('message'))
         <div class="bg-green-500 text-white p-4 mb-4">
             {{ session('message') }}
@@ -9,7 +8,7 @@
 
     <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-gray-700 rounded-lg shadow" @click.away="show=false">
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
                 <h3 class="text-lg font-semibold text-white">
                     Create New User
                 </h3>
@@ -73,7 +72,7 @@
                     <x-label for="profile_photo_path" value="{{ __('Profile Photo') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="profile_photo_path"
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        class="w-full"
                         type="file" wire:model="profile_photo_path" />
                     @error('profile_photo_path')
                         <span class="text-red-500">{{ $message }}</span>
@@ -97,7 +96,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-button class="bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">
+                    <x-button>
                         {{ __('Create User') }}
                     </x-button>
                 </div>

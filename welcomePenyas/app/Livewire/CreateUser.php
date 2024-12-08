@@ -43,7 +43,7 @@ class CreateUser extends Component
         'surname' => 'nullable|string|max:255',
         'email' => 'required|email|max:255|unique:users,email',
         'password' => 'required|string|min:8',
-        'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         'role' => 'required|exists:roles,id',
     ];
 
@@ -64,7 +64,6 @@ class CreateUser extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'profile_photo_path' => $profilePhotoPath,
-            // ! Profile photo se guarda en donde debería, pero en la base de datos no guarda el string... ! //
             'role_id' => $this->role,
         ]);
 
