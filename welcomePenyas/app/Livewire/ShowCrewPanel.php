@@ -15,7 +15,6 @@ class ShowCrewPanel extends Component
 
     public $search = '';
     public $crewCreation = false;
-
     public $crewsData = [];
 
     public function mount() 
@@ -23,11 +22,13 @@ class ShowCrewPanel extends Component
         $this->crewsData = Crew::all()->keyBy('id')->toArray();
     }
 
+    // º Toggle the crew creation panel º //
     public function createCrewPopup() 
     {
         $this->dispatch('crew-create');
     }
 
+    // º Modify the values in pagination º //
     public function modify($id) 
     { 
         $validated = $this->validate([
@@ -48,8 +49,10 @@ class ShowCrewPanel extends Component
 
         $crew = Crew::find($id);
         $crew->update($this->crewsData[$id]);
+        session()->flash('status', 'The crew ' . $crew->name . ' has been updated');
     }
 
+    // º Remove the logo of a crew º //
     public function byeByeLogo($id)
     {
         $crew = Crew::find($id);
@@ -64,7 +67,7 @@ class ShowCrewPanel extends Component
 
     public function render()
     {
-        $crews = Crew::where('name', 'like', '%'.$this->search.'%')->paginate(10);
+        $crews = Crew::where('name', 'like', '%'.$this->search.'%')->paginate(10, ['*'], 'crews');
         return view('livewire.show-crew-panel', ['crews' => $crews]);
     }
 }

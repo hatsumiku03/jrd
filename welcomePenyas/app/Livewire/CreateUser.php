@@ -14,27 +14,21 @@ class CreateUser extends Component
     use WithFileUploads;
 
     public $userCreation;
+
     // º User variables for the form º //
     public $name;
     public $surname;
     public $email;
     public $password;
     public $profile_photo_path;
-
-    // º Role must refer to user table, and roles for the display of which role you want º //
     public $role;
     public $roles;
 
+
+    // º True or false to toggle the create user panel º //
     #[On('user-create')]
     public function userCreate(){
         $this->userCreation = true;
-    }
-
-    // º Mount roles as a reference of the role table  º //
-    public function mount($userCreation)
-    {
-        $this->userCreation = $userCreation;
-        $this->roles = Role::all();
     }
 
     // º Rules for the creation º //
@@ -72,7 +66,6 @@ class CreateUser extends Component
         $this->reset(['name', 'surname', 'email', 'password', 'profile_photo_path', 'role']);
     }
 
-    // º Render by default º //
     public function render()
     {
         return view('livewire.create-user');

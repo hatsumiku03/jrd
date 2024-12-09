@@ -22,7 +22,6 @@ class CreateCrew extends Component
     public $color;
 
 
-    // º Mount all º //
     public function mount($crewCreation){
         $this->crewCreation = $crewCreation;
     }
@@ -44,7 +43,7 @@ class CreateCrew extends Component
     ];
 
         
-    // º Rules for the creation º //
+    // º Create crew logic º //
     public function createCrew(){
         $this->validate();
 

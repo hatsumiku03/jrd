@@ -1,4 +1,4 @@
-<div x-data="{show: @entangle('userCreation').live}" x-show="show" class="fixed inset-0 bg-black/50 flex items-center justify-center">
+<div x-data="{show: @entangle('userCreation').live}" x-show="show" x-transition.opacity class="fixed inset-0 bg-black/50 flex items-center justify-center">
     @if (session()->has('message'))
         <div class="bg-green-500 text-white p-4 mb-4">
             {{ session('message') }}
@@ -24,6 +24,8 @@
                 </button>
             </div>
             <form wire:submit.prevent="createUser" class="p-4 md:p-5">
+
+                {{-- Name --}}
                 <div class="mt-4">
                     <x-label for="name" value="{{ __('Name') }}"
                         class="block mb-2 text-sm font-medium text-white" />
@@ -35,6 +37,7 @@
                     @enderror
                 </div>
 
+                {{-- Surname --}}
                 <div class="mt-4">
                     <x-label for="surname" value="{{ __('Surname') }}"
                         class="block mb-2 text-sm font-medium text-white" />
@@ -46,6 +49,7 @@
                     @enderror
                 </div>
 
+                {{-- Email --}}
                 <div class="mt-4">
                     <x-label for="email" value="{{ __('Email') }}"
                         class="block mb-2 text-sm font-medium text-white" />
@@ -57,6 +61,7 @@
                     @enderror
                 </div>
 
+                {{-- Password --}}
                 <div class="mt-4">
                     <x-label for="password" value="{{ __('Password') }}"
                         class="block mb-2 text-sm font-medium text-white" />
@@ -68,6 +73,7 @@
                     @enderror
                 </div>
 
+                {{-- Profile Photo --}}
                 <div class="mt-4">
                     <x-label for="profile_photo_path" value="{{ __('Profile Photo') }}"
                         class="block mb-2 text-sm font-medium text-white" />
@@ -79,6 +85,7 @@
                     @enderror
                 </div>
 
+                {{-- Role --}}
                 <div class="mt-4">
                     <x-label for="role" value="{{ __('Role') }}"
                         class="block mb-2 text-sm font-medium text-white" />
@@ -95,6 +102,7 @@
                     @enderror
                 </div>
 
+                {{-- Submit --}}
                 <div class="mt-4">
                     <x-button>
                         {{ __('Create User') }}

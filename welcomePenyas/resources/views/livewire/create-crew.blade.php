@@ -1,4 +1,4 @@
-<div x-data="{show: @entangle('crewCreation').live}" x-show="show" x-transition class="fixed inset-0 bg-black/50 flex items-center justify-center">
+<div x-data="{show: @entangle('crewCreation').live}" x-show="show" x-transition.opacity class="fixed inset-0 bg-black/50 flex items-center justify-center">
     @if (session()->has('message'))
         <div class="bg-green-500 text-white p-4 mb-4">
             {{ session('message') }}

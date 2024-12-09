@@ -13,7 +13,8 @@
 
         <x-input type="text" wire:model.live="search" placeholder="Search a user..." />
 
-        <div class="absolute top-[23rem] right-[85rem] mt-1">
+        {{-- Modify this with tailwind --}}
+        <div>
             <button wire:click="createUserPopup"
                 class="w-fit mt-2 text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
                 Create User
@@ -51,8 +52,10 @@
                 <form>
                     @csrf
                     <tr class="border-b bg-gray-800 border-gray-700">
+                        
+                        {{-- Name --}}
                         <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
-                            <input type="text" class="w-full bg-gray-800 border-none" value="{{ $user->name }}"
+                            <input placeholder="Inserta un nombre" type="text" class="w-full bg-gray-800 border-none" value="{{ $user->name }}"
                                 wire:model.defer="userData.{{ $user->id }}.name">
                             <div class="text-red-500">
                                 @error('userData.{{ $user->id }}.name')
@@ -60,14 +63,20 @@
                                 @enderror
                             </div>
                         </th>
+
+                        {{-- Surname --}}
                         <td class="px-6 py-4">
-                            <input placeholder="Put a surname..." type="text" class="w-full bg-gray-800 border-none"
+                            <input placeholder="Inserta un apellido" type="text" class="w-full bg-gray-800 border-none"
                                 value="{{ $user->surname }}" wire:model.defer="userData.{{ $user->id }}.surname">
                         </td>
+
+                        {{--- Email --}}
                         <td class="px-6 py-4">
-                            <input type="text" class="w-full bg-gray-800 border-none" value="{{ $user->email }}"
+                            <input placeholder="Inserta un email" type="text" class="w-full bg-gray-800 border-none" value="{{ $user->email }}"
                                 wire:model.defer="userData.{{ $user->id }}.email">
                         </td>
+
+                        {{-- Role --}}
                         <td class="px-6 py-4 {{ $user->role_id == 1 ? 'text-green-600' : 'text-orange-500' }}">
                             <select class="w-full bg-gray-800 border-none"
                                 wire:model.defer="userData.{{ $user->id }}.role_id">
@@ -77,6 +86,8 @@
                                 @endforeach
                             </select>
                         </td>
+
+                        {{-- Submit --}}
                         <td class="px-6 py-4">
                             <button wire:click='modify({{ $user->id }})'
                                 class="bg-gray-600 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">Modify</button>

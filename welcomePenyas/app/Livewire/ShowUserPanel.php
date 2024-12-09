@@ -75,7 +75,7 @@ class ShowUserPanel extends Component
         $roles = Role::all();
         
         // | Consulta | //
-        $users = User::where('name', 'like', '%'.$this->search.'%')->paginate(perPage: 10);
+        $users = User::where('name', 'like', '%'.$this->search.'%')->paginate(10, ['*'], 'users');
 
         return view('livewire.show-user-panel')
         ->with(['users' => $users, 'roles' => $roles]);
