@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_crews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('crews_id')->constrained(
+            $table->foreignId('crew_id')->constrained(
                 table: 'crews', indexName: 'crewsUserCrew_id'
             )->onDelete('cascade');
-            $table->foreignId('users_id')->constrained(
+            $table->foreignId('user_id')->constrained(
                 table: 'users', indexName: 'usersUserCrew_id'
             )->onDelete('cascade');
             $table->timestamps();

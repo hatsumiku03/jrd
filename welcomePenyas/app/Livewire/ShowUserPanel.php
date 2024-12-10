@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\Request;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\UserCrew;
-use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -24,15 +24,15 @@ class ShowUserPanel extends Component
     // º Mount the user database data by id º //
     public function mount(){
         $this->userData = User::all()->keyBy('id')->toArray();
+
     }
 
 
 
     // º Error messages (working) º //
     protected $messages = [ 
-        'userData.*.name.required' => 'You must gave a name!!!11.', 
-        'userData.*.email.required' => 'You must put here a email dumbass.', 
-        // ! Add more custom messages as needed 
+        'userData.*.name.required' => 'Has de poner un nombre', 
+        'userData.*.email.required' => 'Has de poner un email', 
     ];
 
 
@@ -67,19 +67,19 @@ class ShowUserPanel extends Component
         session()->flash('status', 'El usuario ' . $user->name . ' ha sido modificado correctamente');
     }
 
-    public function toggleRequestStatus($userId)
+    public function requestAccept($userId)
     {
         $user = User::find($userId);
-        $request = $user->requests()->first();
+        $request = $user->request()->first();
 
         if ($request) {
-            $request->update(['user_id' => null, 'crew_id' => null]);
-
+            
             UserCrew::create([
                 'user_id' => $user->id,
-                'crew_id' => $request->crew_id,
-            ]);
-        }
+                'crew_id' => $request->crews_id,
+                ]);
+            }
+        $request->delete();
     }
 
     // º Render and pagination º//

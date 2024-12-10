@@ -21,7 +21,7 @@ class UserRequestCrew extends Component
         $this->userId = auth()->user()->id;
 
         $activeUserRequest = Request::where('users_id', $this->userId)->exists();
-        $activeUserCrew = UserCrew::where('users_id', $this->userId)->exists();
+        $activeUserCrew = UserCrew::where('user_id', $this->userId)->exists();
 
         // Esto se ha de cambiar ya que quiero separar el mensaje de esperando aunirse a una peña, y un
         // display de que ya estas en una peña

@@ -95,9 +95,9 @@
                         </td>
 
                         <td class="px-6 py-4">
-                            <button wire:click="toggleRequestStatus({{ $user->id }})"
+                            <button wire:click="requestAccept({{ $user->id }})"
                                 class="text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                {{ $user->request_status ? 'Remove' : 'Add' }}
+                                Add
                             </button>
                         </td>
 
