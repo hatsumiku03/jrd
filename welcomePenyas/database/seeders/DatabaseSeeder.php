@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Crew;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\UserCrew;
+use Database\Factories\UserFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -46,8 +48,6 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        Crew::factory(20)->create();
-
         // | Roles | //
 
         $admin = Role::factory()->create([
@@ -75,7 +75,30 @@ class DatabaseSeeder extends Seeder
             'role_id' => $regular->id,
             'password' => 'e'
             ]);
+
+        User::factory()->create([
+            'name' => 'Isaac_Incineroar',
+            'email' => 'n@n.n',
+            'profile_photo_path' => 'profile-photos/0YbmyuHlY7Ryq8oiD2u51exZ6hKpPaWyfKHbLnY7.jpg',
+            'role_id' => $regular->id,
+            'password' => 'n'
+            ]);
         
-         User::factory(20)->create(); // Normal users creation
+
+        UserCrew::factory()->create([
+            'user_id' => 2,
+            'crew_id' => 1
+        ]);
+
+        UserCrew::factory()->create([
+            'user_id' => 3,
+            'crew_id' => 1
+        ]);
+
+    // Normal users creation
+    // User::factory(20)->create();
+
+    // Create ramdom crews
+    // Crew::factory(20)->create();
     }
 }

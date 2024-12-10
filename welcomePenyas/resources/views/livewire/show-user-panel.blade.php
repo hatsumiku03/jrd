@@ -94,12 +94,24 @@
                             </select>
                         </td>
 
+                        @if ($user->pendingRequest())
+                            <td class="px-6 py-4">
+                                <button wire:click="requestAccept({{ $user->id }})"
+                                    class="text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                    Add
+                                </button>
+                            </td>
+                        @elseif ($user->inCrew())
                         <td class="px-6 py-4">
-                            <button wire:click="requestAccept({{ $user->id }})"
-                                class="text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                Add
-                            </button>
+                                <div class="text-{{$user->userCrew->crew->color}}">
+                                    {{ $user->userCrew->crew->name }}
+                                </div>
                         </td>
+                        @else
+                        <td class="px-6 py-4">
+                            <p>No pertenece a ninguna peña</p>
+                        </td>
+                        @endif
 
                         {{-- Submit --}}
                         <td class="px-6 py-4">

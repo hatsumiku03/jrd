@@ -9,7 +9,7 @@
                     </div>
                     <div class="text-gray-200">
                         <h3 class="text-xl font-bold">Sobre:</h3>
-                        <ul class="ml-4 list-none">
+                        <ul class="ml-7 list-disc">
                             <li>Correo</li>
                             <li>Blog</li>
                             <li>Acerca de nosotros</li>

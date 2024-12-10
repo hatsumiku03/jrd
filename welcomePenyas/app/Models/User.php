@@ -70,15 +70,23 @@ class User extends Authenticatable
         ];
     }
 
-    public function crew(){
-        return $this->belongsTo(Crew::class);
+    public function userCrew(){
+        return $this->hasOne(UserCrew::class);
     }
 
-    public function role(){
-        return $this->belongsTo(Role::class);
+    public function inCrew(){
+        return $this->userCrew()->exists();
     }
-
+    
     public function request(){
         return $this->hasOne(Request::class, 'users_id');
+    }
+    
+    public function pendingRequest(){
+        return $this->request()->exists();
+
+    }
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 }

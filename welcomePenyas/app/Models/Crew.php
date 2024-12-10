@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Crew extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'name',
         'logo',
@@ -16,7 +17,11 @@ class Crew extends Model
         'color',
     ];
 
-    use HasFactory;
+
+    public function userCrew(){
+        return $this->hasOne(UserCrew::class);
+    }
+
     public function user(){
         return $this->hasMany(User::class);
     }

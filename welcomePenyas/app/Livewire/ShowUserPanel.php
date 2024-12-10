@@ -28,7 +28,6 @@ class ShowUserPanel extends Component
     }
 
 
-
     // º Error messages (working) º //
     protected $messages = [ 
         'userData.*.name.required' => 'Has de poner un nombre', 
@@ -39,7 +38,6 @@ class ShowUserPanel extends Component
     // º Emit AdministratorPanel to create an user º //
     public function createUserPopup(){
         $this->dispatch('user-create');
-        // $this->userCreation = !$this->userCreation;
     }
 
 
