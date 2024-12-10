@@ -25,6 +25,20 @@
         @else
             @include('navigation-logout')
         @endif
+        <div class="container mx-auto py-10">
+            <div class="text-center">
+                <h1 class="text-white text-5xl mb-6">Bienvenido a las peñas de la Vall</h1>
+            </div>
+
+            <!-- Information Section -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+                <h2 class="text-gray-200 text-2xl font-semibold mb-4">¿Qué son?</h2>
+                <p class="text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est alias molestiae pariatur voluptatibus dolores saepe quae modi hic mollitia labore nihil magni repellat, culpa, perspiciatis ab officia doloribus praesentium eum!</p>
+            </div>
+        </div>        
+
+        <!-- Contact Section -->
+        @include('components.about')
         @livewireScripts
     </body>
 </html>

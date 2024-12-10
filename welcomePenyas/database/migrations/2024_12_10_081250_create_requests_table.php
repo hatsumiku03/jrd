@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('import');
-            $table->boolean('status');
-            $table->foreignId('user_crew_id')->constrained(
-                table: 'user_crew', indexName: 'user_crew_id'
-            );
             $table->foreignId('crews_id')->constrained(
-                table: 'crews', indexName: 'crewsPayments_id'
-            );
+                table: 'crews', indexName: 'crewsRequest_id'
+            )->onDelete('cascade');
+            $table->foreignId('users_id')->constrained(
+                table: 'users', indexName: 'usersRequest_id'
+            )->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('requests');
     }
 };

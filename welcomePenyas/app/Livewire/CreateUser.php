@@ -15,14 +15,13 @@ class CreateUser extends Component
 
     public $userCreation;
 
-    // º User variables for the form º //
+    // º User variables º //
     public $name;
     public $surname;
     public $email;
     public $password;
     public $profile_photo_path;
     public $role;
-    public $roles;
 
 
     // º True or false to toggle the create user panel º //
@@ -68,6 +67,7 @@ class CreateUser extends Component
 
     public function render()
     {
-        return view('livewire.create-user');
+        $roles = Role::all();
+        return view('livewire.create-user', ['roles' => $roles]);
     }
 }

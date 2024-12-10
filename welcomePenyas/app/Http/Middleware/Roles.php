@@ -16,6 +16,7 @@ class Roles
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // 1 is admin
         if (Auth::check() && Auth::user()->role_id == 1) {
             return $next($request);
         }

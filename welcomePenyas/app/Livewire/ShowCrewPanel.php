@@ -49,7 +49,7 @@ class ShowCrewPanel extends Component
 
         $crew = Crew::find($id);
         $crew->update($this->crewsData[$id]);
-        session()->flash('status', 'The crew ' . $crew->name . ' has been updated');
+        session()->flash('status', 'La peña ' . $crew->name . ' fue actualizada correctamente.');
     }
 
     // º Remove the logo of a crew º //

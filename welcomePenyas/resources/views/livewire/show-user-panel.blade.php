@@ -1,6 +1,10 @@
 <div class="grid">
     <div class="py-4 pl-2">
-
+        @if (session()->has('status'))
+            <div class="bg-green-500 text-white p-4 mb-4 rounded">
+                {{ session('status') }}
+            </div>
+        @endif
         <div>
             <button type="button" wire:click="$parent.showUserPanel"
                 class="text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"><svg
@@ -31,19 +35,22 @@
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    Nombre
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Surname
+                    Apellido
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Email
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Role
+                    Rol
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Save
+                    Peña
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Guardar
                 </th>
             </tr>
         </thead>
@@ -85,6 +92,13 @@
                                     </option>
                                 @endforeach
                             </select>
+                        </td>
+
+                        <td class="px-6 py-4">
+                            <button wire:click="toggleRequestStatus({{ $user->id }})"
+                                class="text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                {{ $user->request_status ? 'Remove' : 'Add' }}
+                            </button>
                         </td>
 
                         {{-- Submit --}}

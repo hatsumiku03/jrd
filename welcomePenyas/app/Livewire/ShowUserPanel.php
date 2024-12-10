@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\UserCrew;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -63,11 +64,23 @@ class ShowUserPanel extends Component
         
         $user->update($this->userData[$id]);
 
-        // ! I want a check status when you update modfiers, this is if you check the user isn't admin, instant out on the page
-        $this->resetPage();
+        session()->flash('status', 'El usuario ' . $user->name . ' ha sido modificado correctamente');
     }
 
-    
+    public function toggleRequestStatus($userId)
+    {
+        $user = User::find($userId);
+        $request = $user->requests()->first();
+
+        if ($request) {
+            $request->update(['user_id' => null, 'crew_id' => null]);
+
+            UserCrew::create([
+                'user_id' => $user->id,
+                'crew_id' => $request->crew_id,
+            ]);
+        }
+    }
 
     // º Render and pagination º//
     public function render()
