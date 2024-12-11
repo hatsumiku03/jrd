@@ -11,10 +11,10 @@
     <form wire:submit.prevent="sendRequest">
         <input type="hidden" wire:model="userId">
         
-        <label for="crew">Select a Crew:</label>
+        <label for="crew">Selecciona a que peña quieres unirte:</label>
 
         <select wire:model="crewId" id="crew" class="text-black">
-            <option value="">-- Select a Crew --</option>
+            <option value="">-- Selecciona una peña --</option>
             @foreach($crews as $crew)
                 <option value="{{ $crew->id }}">{{ $crew->name }}</option>
             @endforeach
