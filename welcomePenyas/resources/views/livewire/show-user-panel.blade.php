@@ -14,8 +14,9 @@
                 </svg>
             </button>
         </div>
-
+        
         <x-input type="text" wire:model.live="search" placeholder="Search a user..." />
+        <p class="text-white"> {{ $search }}</p>
 
         {{-- Modify this with tailwind --}}
         <div>
