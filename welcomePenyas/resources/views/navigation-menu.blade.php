@@ -176,7 +176,7 @@
                 </div>
             </div>
 
-            <div class="mt-3 space-y-1 text-red-600">
+            <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-responsive-nav-link wire:navigate href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
