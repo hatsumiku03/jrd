@@ -47,6 +47,13 @@ class ShowCrewPanel extends Component
             $this->crewsData[$id]['logo'] = $logoPath;
         }
 
+        if($this->crewsData[$id]['color']== '') {
+            $this->crewsData[$id]['color'] = null;
+            
+
+        }
+
+        
         $crew = Crew::find($id);
         $crew->update($this->crewsData[$id]);
         session()->flash('status', 'La peña ' . $crew->name . ' fue actualizada correctamente.');

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'logo' => null,
             'capacity_people' => 666,
             'slogan' => 'Te voy a coger fill d',
-            'color' => '',
+            'color' => null,
             'foundation_date' => '1952/12/25' // Format: YYYY/MM/DD
 
         ]);
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'logo' => null,
             'capacity_people' => 34,
             'slogan' => 'Nos arrollidaremos ante el general tablos',
-            'color' => '',
+            'color' => null,
             'foundation_date' => '1952/12/25'
 
         ]);
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'logo' => null,
             'capacity_people' => 23,
             'slogan' => 'ANEM A GUANYAR',
-            'color' => '',
+            'color' => null,
             'foundation_date' => '2013/4/3'
 
         ]);

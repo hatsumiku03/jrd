@@ -14,7 +14,7 @@
         <label for="crew">Selecciona a que peña quieres unirte:</label>
 
         <select wire:model="crewId" id="crew" class="text-black">
-            <option value="">-- Selecciona una peñaz --</option>
+            <option value="">-- Selecciona una peña --</option>
             @foreach($crews as $crew)
                 <option value="{{ $crew->id }}">{{ $crew->name }}</option>
             @endforeach

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slogan');
             $table->bigInteger('capacity_people');
             $table->date('foundation_date');
-            $table->string('color');
+            $table->string('color')->nullable()->default(null);
             $table->timestamps();
         });
     }
