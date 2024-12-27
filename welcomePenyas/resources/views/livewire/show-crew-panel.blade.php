@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="grid bg-gray-800">
     <div class="py-4 pl-2">
         @if (session()->has('status'))
             <div class="bg-green-500 text-white p-4 mb-4 rounded">
