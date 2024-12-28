@@ -111,7 +111,7 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
+                            <div class="block px-4 py-2 text-xs text-white font-bold">
                                 {{ __('Manage Account') }}
                             </div>
 
