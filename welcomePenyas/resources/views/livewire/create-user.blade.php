@@ -7,7 +7,7 @@
 
 
     <div class="relative p-4 w-full max-w-md max-h-full">
-        <div class="relative bg-gray-700 rounded-lg shadow" @click.away="show=false">
+        <div class="relative bg-[#404040] rounded-lg shadow" @click.away="show=false">
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
                 <h3 class="text-lg font-semibold text-white">
                     Create New User
@@ -27,7 +27,7 @@
 
                 {{-- Name --}}
                 <div class="mt-4">
-                    <x-label for="name" value="{{ __('Name') }}"
+                    <x-label for="name" value="{{ __('Nombre') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="name"
                         class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
@@ -39,7 +39,7 @@
 
                 {{-- Surname --}}
                 <div class="mt-4">
-                    <x-label for="surname" value="{{ __('Surname') }}"
+                    <x-label for="surname" value="{{ __('Apellidos') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="surname"
                         class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
@@ -63,7 +63,7 @@
 
                 {{-- Password --}}
                 <div class="mt-4">
-                    <x-label for="password" value="{{ __('Password') }}"
+                    <x-label for="password" value="{{ __('Contraseña') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="password"
                         class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
@@ -75,7 +75,7 @@
 
                 {{-- Profile Photo --}}
                 <div class="mt-4">
-                    <x-label for="profile_photo_path" value="{{ __('Profile Photo') }}"
+                    <x-label for="profile_photo_path" value="{{ __('Foto de perfil') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="profile_photo_path"
                         class="w-full"
@@ -87,10 +87,10 @@
 
                 {{-- Role --}}
                 <div class="mt-4">
-                    <x-label for="role" value="{{ __('Role') }}"
+                    <x-label for="role" value="{{ __('Rol') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <select id="role"
-                        class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                        class="bg-[#262626] rounded-xl border border-gray-500 text-white text-sm focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                         wire:model.defer="role" required>
                         <option value="">{{ __('Select Role') }}</option>
                         @foreach ($roles as $role)
@@ -105,7 +105,7 @@
                 {{-- Submit --}}
                 <div class="mt-4">
                     <x-button>
-                        {{ __('Create User') }}
+                        {{ __('Crear') }}
                     </x-button>
                 </div>
             </form>

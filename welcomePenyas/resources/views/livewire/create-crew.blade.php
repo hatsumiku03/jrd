@@ -27,7 +27,7 @@
 
             {{-- Name --}}
             <div class="mt-4">
-                <x-label for="name" value="{{ __('Name') }}"
+                <x-label for="name" value="{{ __('Nombre') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="name"
                     class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
@@ -63,7 +63,7 @@
 
             {{-- Capacity of people --}}
             <div class="mt-4">
-                <x-label for="capacity_people" value="{{ __('Capacity of people') }}"
+                <x-label for="capacity_people" value="{{ __('Capacidad de personas') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="capacity_people"
                     class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
@@ -75,7 +75,7 @@
 
             {{-- Foundation date --}}
             <div class="mt-4">
-                <x-label for="foundation_date" value="{{ __('Foundation date') }}"
+                <x-label for="foundation_date" value="{{ __('Fecha de fundación') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="foundation_date"
                     class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
@@ -88,7 +88,7 @@
             {{-- Color --}}
             <div class="mt-4">
                 <x-label for="color" value="{{ __('Color') }}" class="block mb-2 text-sm font-medium text-white" />
-                <select id="color" wire:model.defer="color" class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                <select id="color" wire:model.defer="color" class="bg-[#262626] rounded-xl border border-gray-500 text-white text-sm focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                     <option value="">Select a color</option>
                     <option value="red-500">Red</option>
                     <option value="blue-500">Blue</option>
@@ -103,7 +103,7 @@
 
             <div class="mt-4">
                 <x-button>
-                    {{ __('Create Crew') }}
+                    {{ __('Crear') }}
                 </x-button>
             </div>
         </form>

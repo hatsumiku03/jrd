@@ -20,7 +20,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-300">
+        <div class="min-h-screen bg-[#404040]">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->

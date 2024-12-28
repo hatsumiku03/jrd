@@ -19,7 +19,7 @@
             </style>
         @endif
     </head>
-    <body class="bg-gray-300">
+    <body class="bg-[#404040]">
         @if (Auth::check())
             @livewire('navigation-menu')
         @else
@@ -27,7 +27,7 @@
         @endif
         <div class="container mx-auto py-10">
             <div class="text-center">
-                <h1 class="text-gray-800 text-5xl mb-6">Bienvenido a las peñas de la Vall</h1>
+                <h1 class="text-gray-300 text-5xl mb-6">Bienvenido a las peñas de la Vall</h1>
             </div>
 
 
