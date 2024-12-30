@@ -31,9 +31,9 @@
                 <div class="mt-4 max-w-xl text-sm text-gray-300">
                     <p class="font-semibold">
                         @if ($showingConfirmation)
-                            {{ __('To finish enabling two factor authentication, scan the following QR code using your phone\'s authenticator application or enter the setup key and provide the generated OTP code.') }}
+                            {{ __('Para acabar de configurar la verificación en dos pasos, escanea el siguiente código usando la aplicación de autenticación en tu movil y guarda la tu código OTP.') }}
                         @else
-                            {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application or enter the setup key.') }}
+                            {{ __('La verificación en dos pasos esta activa. Escanea el siguiente código usando en tu movil la aplicación de autenticación o en la misma aplicación, pon la clave de configuración.') }}
                         @endif
                     </p>
                 </div>
