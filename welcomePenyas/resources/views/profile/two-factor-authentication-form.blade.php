@@ -11,12 +11,12 @@
         <h3 class="text-lg font-medium text-gray-100">
             @if ($this->enabled)
                 @if ($showingConfirmation)
-                    {{ __('Acaba de configurar la verificación en dos pasos.') }}
+                    {{ __('Sigue la siguiente indicación para activar la verificación en dos pasos:') }}
                 @else
-                    {{ __('Has activado la verificación en dos pasos.') }}
+                    {{ __('La verificación en dos pasos esta activa') }}
                 @endif
             @else
-                {{ __('No has podido configurar la verificación en dos pasos.') }}
+                {{ __('La verificación en dos pasos no esta activa.') }}
             @endif
         </h3>
 

@@ -83,8 +83,22 @@
                         </div>
                     </div>
                 </div>
+                <!-- Hay que cambiar los enlaces de management, son para el usuario final -->
                 @else
-                    <p class="text-gray-400">Placeholder 123</p>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex"> 
+                            <div class="ms-3 relative text-gray-400 -mx-3 flex flex-1 justify-end space-x-3 sm:-my-px sm:ms-10 sm:flex mr-1">
+                                <x-nav-link wire:navigate href="{{ route('management') }}" :active="request()->routeIs(['management', 'users', 'penyas'])">
+                                    {{ __('Placeholder 1') }}
+                                </x-nav-link>        
+                                <x-nav-link wire:navigate href="{{ route('management') }}" :active="request()->routeIs(['management', 'users', 'penyas'])">
+                                    {{ __('Placeholder 2') }}
+                                </x-nav-link>      
+                            </div>
+                        </div>
+                    </div>
+                </div
                 @endif
     
                 
@@ -125,7 +139,7 @@
                                 </x-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-600"></div>
+                            <div class="border-t border-black"></div>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
@@ -179,7 +193,7 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-responsive-nav-link wire:navigate href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-responsive-nav-link>
                 <!-- Admin links when is in any route except perfectmanagement -->
                 @if (Auth::user()->role_id == 1)    
@@ -187,7 +201,10 @@
                     {{ __('Gestión') }}
                 </x-responsive-nav-link>
                 @else
-                    <p class="text-gray-400">Placeholder</p>
+                <!-- Management no es la ruta que le corresponde tener, cambiar después -->
+                <x-responsive-nav-link  wire:navigate href="{{ route('management') }}" :active="request()->routeIs('management')">
+                    {{ __('Placeholder') }}
+                </x-responsive-nav-link> 
                 @endif
                 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
