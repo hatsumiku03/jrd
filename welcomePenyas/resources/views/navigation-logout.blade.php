@@ -20,11 +20,11 @@
 
             <div class="ms-3 relative -mx-3 flex flex-1 justify-end space-x-3 sm:-my-px sm:ms-10 sm:flex mr-1">
                 <x-nav-link wire:navigate href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
+                    {{ __('Iniciar sesión') }}
                 </x-nav-link>
 
                 <x-nav-link wire:navigate href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    {{ __('Register') }}
+                    {{ __('Registrarse') }}
                 </x-nav-link>
             </div>
 

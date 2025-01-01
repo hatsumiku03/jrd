@@ -112,11 +112,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-white font-bold">
-                                {{ __('Manage Account') }}
+                                {{ __('Gestión de la cuenta') }}
                             </div>
 
                             <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -133,7 +133,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                         @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Cerrar sesión') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -202,7 +202,7 @@
 
                     <x-responsive-nav-link href="{{ route('logout') }}"
                                 @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
 
