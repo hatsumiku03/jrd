@@ -28,6 +28,7 @@
 
         <!-- Title with background image -->
         <div class="py-10 w-screen h-[500px] bg-cover" style="background-image: url('{{ asset('penyesvall.png') }}'); background-position: 10% 37%;">
+            
             <div class="flex mt-36 items-center justify-center">
                 <span class="absolute mx-auto py-4 flex border w-fit blur-md text-black bg-clip-text max-[767px]:text-4xl md:text-8xl box-content font-extrabold text-center select-none">
                     Bienvenido a las peñas de la Vall
