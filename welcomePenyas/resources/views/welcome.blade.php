@@ -43,6 +43,13 @@
         <!-- Carusel -->
             @livewire('carousel')
         
+        <!-- About -->
+
+        <!-- Form -->
+
+        <!-- Maps -->
+
+        <!-- Footer  -->
         @livewireScripts
     </body>
 </html>
