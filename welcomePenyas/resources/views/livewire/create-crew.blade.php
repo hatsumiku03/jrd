@@ -7,7 +7,7 @@
 
 
 <div class="relative p-4 w-full max-w-md max-h-full">
-    <div class="relative bg-gray-700 rounded-lg shadow" @click.away="show=false">
+    <div class="relative bg-[#404040] rounded-lg shadow" @click.away="show=false">
         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
             <h3 class="text-lg font-semibold text-white">
                 Create New User
@@ -30,7 +30,7 @@
                 <x-label for="name" value="{{ __('Nombre') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="name"
-                    class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    class="bg-[#262626] border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                     type="text" wire:model.defer="name" required />
                 @error('name')
                     <span class="text-red-500">{{ $message }}</span>
@@ -42,7 +42,7 @@
                 <x-label for="logo" value="{{ __('Logo') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="logo"
-                    class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    class="bg-[#262626] border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                     type="file" wire:model.defer="logo" />
                 @error('logo')
                     <span class="text-red-500">{{ $message }}</span>
@@ -54,7 +54,7 @@
                 <x-label for="slogan" value="{{ __('Slogan') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="slogan"
-                    class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    class="bg-[#262626] border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                     type="text" wire:model.defer="slogan" />
                 @error('slogan')
                     <span class="text-red-500">{{ $message }}</span>
@@ -66,7 +66,7 @@
                 <x-label for="capacity_people" value="{{ __('Capacidad de personas') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="capacity_people"
-                    class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    class="bg-[#262626] border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                     type="number" wire:model.defer="capacity_people" />
                 @error('capacity_people')
                     <span class="text-red-500">{{ $message }}</span>
@@ -78,7 +78,7 @@
                 <x-label for="foundation_date" value="{{ __('Fecha de fundación') }}"
                     class="block mb-2 text-sm font-medium text-white" />
                 <x-input id="foundation_date"
-                    class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    class="bg-[#262626] border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                     type="date" wire:model.defer="foundation_date" />
                 @error('foundation_date')
                     <span class="text-red-500">{{ $message }}</span>

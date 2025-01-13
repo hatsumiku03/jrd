@@ -30,7 +30,7 @@
                     <x-label for="name" value="{{ __('Nombre') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="name"
-                        class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                        class="bg-[#262626] border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                         type="text" wire:model.defer="name" required />
                     @error('name')
                         <span class="text-red-500">{{ $message }}</span>
@@ -42,7 +42,7 @@
                     <x-label for="surname" value="{{ __('Apellidos') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="surname"
-                        class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                        class="bg-[#262626]  border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                         type="text" wire:model.defer="surname" />
                     @error('surname')
                         <span class="text-red-500">{{ $message }}</span>
@@ -54,7 +54,7 @@
                     <x-label for="email" value="{{ __('Email') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="email"
-                        class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                        class="bg-[#262626]  border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                         type="email" wire:model.defer="email" />
                     @error('email')
                         <span class="text-red-500">{{ $message }}</span>
@@ -66,7 +66,7 @@
                     <x-label for="password" value="{{ __('Contraseña') }}"
                         class="block mb-2 text-sm font-medium text-white" />
                     <x-input id="password"
-                        class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                        class="bg-[#262626]  border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                         type="password" wire:model.defer="password" required />
                     @error('password')
                         <span class="text-red-500">{{ $message }}</span>
