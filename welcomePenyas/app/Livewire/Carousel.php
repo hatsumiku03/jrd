@@ -7,12 +7,18 @@ use Livewire\Component;
 class Carousel extends Component
 {
     public $images;
+
+    // ! This arrays isn't automatized
+    // ! We need to add a function for select random quotes, and vía quotes, the crew name
     public $quotes;
+    public $crewsName;
 
     public $currentImage = 0;
 
     protected $listeners = ['nextImage', 'previousImage'];
 
+    // ! He dejado estas funciones inútiles porque en el carousel estoy usando alpine para no llamar al servidor
+    // ! todo el rato con wire:click, he de mirar de arreglarlo, había una opción de livewire para no estar haciendo request constantemente al server
     public function nextImage(){
         $this->currentImage = ($this->currentImage + 1) % count($this->images);
     }
@@ -29,8 +35,15 @@ class Carousel extends Component
         ];
         $this->quotes = [
             'Señorets, viva les penyes',
-            'SOCORRO, BABU ME ESTA SECUESTRANDO',
-            'Ese papu misterioso',
+            'Nos arrodillaremos ante el general tablos',
+            'ANEM A GUANYAR',
+            
+        ];
+
+        $this->crewsName = [
+            'Los Babus',
+            'E S E N C I A',
+            'Els xics',
             
         ];
     }
