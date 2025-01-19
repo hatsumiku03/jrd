@@ -1,24 +1,20 @@
-<div class="bg-gray-800">
-    <section class="py-24 relative">
-        <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-            <div class="w-full justify-start items-center gap-8 grid lg:grid-cols-2 grid-cols-1">
-                <div class="w-full flex-col justify-start lg:items-start items-center gap-10 inline-flex">
-                    <div class="w-full flex-col justify-start lg:items-start items-center gap-4 flex">
-                        <h2 class="text-gray-100 text-4xl font-bold font-manrope leading-normal lg:text-start text-center">Las peñas de la vall</h2>
-                        <p class="text-gray-200 text-base font-normal leading-relaxed lg:text-start text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ad fugit ipsam, ex veritatis ab modi earum, quod doloremque, est sit at accusantium eaque. Dicta numquam libero est minus quod? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum et esse, vel nemo sequi voluptas unde voluptates. Molestias, perferendis ducimus minima repellendus iusto alias asperiores delectus libero vitae inventore pariatur?</p>
-                    </div>
-                    <div class="text-gray-200">
-                        <h3 class="text-xl font-bold">Sobre:</h3>
-                        <ul class="ml-7 list-disc">
-                            <li>Correo</li>
-                            <li>Blog</li>
-                            <li>Acerca de nosotros</li>
-                        </ul>
-                    </div>
-                </div>
-                <img class="lg:mx-0 mx-auto h-full rounded-3xl object-cover" src="{{ asset('images/backform.png') }}" alt="about Us image" />
-            </div>
-        </div>
-    </section>
-                                            
+<div class="text-white bg-black/50 text-center p-6 text-xl border-2 border-[#404040]">
+    
+    <h1 class="text-5xl mb-8 font-bold">¿Qué son las peñas?</h1>
+    
+    <p>
+        Unas de las fiestas más esperadas por la juventud vallduxense son Les Penyes en Festes, nacidas en el año 1982, se celebran la primera semana del mes de agosto y están organizadas por las peñas de jóvenes de la Vall d’Uixó.
+    </p>
+    
+    <p class="mt-8">
+        Actualmente, la fiesta ha cambiado bastante desde sus comienzos. El tradicional chupinazo, cohete que anuncia el inicio de las fiestas, se dispara desde el balcón del Ayuntamiento al más puro estilo de San Fermín, donde el color en las blusas de los peñistas, la pólvora y el agua dan la bienvenida a la gran semana.
+    </p>
+    
+    <p class="mt-8">
+        Todas las tardes, los peñistas se reúnen en la plaza del mercado, con sus respectivas blusas acreditativas, creando un gran arcoíris de color que llenará la plaza en la que estarán presentes los representantes de las 50 peñas existentes. En esta plaza, rodeada de “cadafals”, tiene lugar el famoso Concurso de Ganaderías.
+    </p>
+    
+    <p class="mt-8">
+        Además de actos taurinos, en estas fiestas populares también se pueden disfrutar de conciertos, verbenas, discomóviles, pasacalles, desfiles de disfraces, cercaviles recorriendo la ciudad con charangas, concursos de gastronomía local, cenas de hermandad y numerosos espectáculos pirotécnicos. 
+    </p>
 </div>
