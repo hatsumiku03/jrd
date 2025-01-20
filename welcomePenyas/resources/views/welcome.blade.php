@@ -19,7 +19,7 @@
     </style>
     @endif
 </head>
-<body class="bg-[#404040] bg-fixed bg-cover bg-no-repeat" style="background-image: url('{{ asset('images/home.jpeg') }}'); background-position: 10% 37%;">
+<body class="bg-fixed bg-cover bg-no-repeat" style="background-image: url('{{ asset('images/home.jpeg') }}'); background-position: 10% 37%;">
     @if (Auth::check())
     @livewire('navigation-menu')
     @else

@@ -6,6 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "blade-ui-kit/blade-zondicons": "^1.5",
+        "codeat3/blade-fontisto-icons": "^1.4",
+        "codeat3/blade-google-material-design-icons": "^1.19",
         "laravel/framework": "^11.9",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",
