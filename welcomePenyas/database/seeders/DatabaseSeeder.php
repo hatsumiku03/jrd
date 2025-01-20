@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
         // | Users | //
         User::factory()->create([
             'name' => 'Mr Babu',
-            'profile_photo_path' => 'profile-photos/dfo1hXU4h5YYVZD0Hsna8w7zzkWN1ndq1x0JTs4p.png',
+            'profile_photo_path' => 'profile-photos/IAONMyG27oTtIMy6TTGTbJ7h0MrGB0pTCeSsG40Y.png',
             'email' => 'a@a.a',
             'role_id' => $admin->id,
             'password' => 'a'
