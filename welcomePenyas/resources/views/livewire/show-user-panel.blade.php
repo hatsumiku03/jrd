@@ -32,7 +32,7 @@
 
 
     </div>
-    <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+    <table class="w-full text-sm text-center rtl:text-center text-gray-400">
         <thead class="text-xs uppercase bg-[#171717] text-gray-300">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -49,6 +49,8 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Peña
+                </th>
+                <th scope="col" class="px-6 py-3">
                 </th>
                 <th scope="col" class="px-6 py-3">
                 </th>
@@ -115,8 +117,12 @@
 
                         {{-- Submit --}}
                         <td class="px-6 py-4">
-                            <button wire:click='modify({{ $user->id }})'
-                                class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded">Guardar</button>
+                                <button wire:click='modify({{ $user->id }})'
+                                    class="bg-[#262626] transition hover:bg-green-900/60 text-white font-bold py-2 px-4 rounded"><x-far-edit class="w-5 h-5" /></button>
+                        </td>
+                        <td class="px-6 py-4">
+                            <button wire:click='remove({{ $user->id }})' class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded">
+                                <x-zondicon-trash class="h-5 w-5" /></button>
                         </td>
                 </form>
             @endforeach

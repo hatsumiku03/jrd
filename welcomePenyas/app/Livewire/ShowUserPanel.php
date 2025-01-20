@@ -65,6 +65,12 @@ class ShowUserPanel extends Component
         session()->flash('status', 'El usuario ' . $user->name . ' ha sido modificado correctamente');
     }
 
+    // º Delete a user º //
+    public function remove($id){
+        $user = User::find($id);
+        $user->delete();
+    }
+
     public function requestAccept($userId)
     {
         $user = User::find($userId);

@@ -49,8 +49,6 @@ class ShowCrewPanel extends Component
 
         if($this->crewsData[$id]['color']== '') {
             $this->crewsData[$id]['color'] = null;
-            
-
         }
 
         
@@ -58,6 +56,12 @@ class ShowCrewPanel extends Component
         $crew->update($this->crewsData[$id]);
         session()->flash('status', 'La peña ' . $crew->name . ' fue actualizada correctamente.');
     }
+
+    public function remove($id){
+        $crew = Crew::find($id);
+        $crew->delete();
+    }
+
 
     // º Remove the logo of a crew º //
     public function byeByeLogo($id)
