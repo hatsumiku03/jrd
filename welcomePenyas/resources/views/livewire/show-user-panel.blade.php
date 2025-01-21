@@ -15,8 +15,8 @@
             </button>
         </div>
         
-        <x-input type="text" wire:model.live="search" placeholder="Search a user..." />
-        <p class="text-white"> {{ $search }}</p>
+        <x-input type="text" wire:model.live="search" placeholder="Busca un usuario..." />
+        {{-- <p class="text-white"> {{ $search }}</p> --}}
 
         {{-- Modify this with tailwind --}}
         <div>
@@ -57,6 +57,7 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach ($users as $user)
                 <form>
                     @csrf
@@ -118,7 +119,7 @@
                         {{-- Submit --}}
                         <td class="px-6 py-4">
                                 <button wire:click='modify({{ $user->id }})'
-                                    class="bg-[#262626] transition hover:bg-green-900/60 text-white font-bold py-2 px-4 rounded"><x-far-edit class="w-5 h-5" /></button>
+                                    class="bg-[#262626] transition hover:bg-blue-900/60 text-white font-bold py-2 px-4 rounded"><x-far-edit class="w-5 h-5" /></button>
                         </td>
                         <td class="px-6 py-4">
                             <button wire:click='remove({{ $user->id }})' class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded">

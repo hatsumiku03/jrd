@@ -15,7 +15,7 @@
             </button>
         </div>
         
-        <x-input type="text" wire:model.live="search" placeholder="Search a crew..." />
+        <x-input type="text" wire:model.live="search" placeholder="Busca una peña..." />
 
         {{-- Modify this with tailwind --}}
         <div>
