@@ -18,6 +18,18 @@ Route::middleware([
     })->name('management');
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    \App\Http\Middleware\Roles::class
+])->group(function () {
+    Route::get('/sorteo', function () {
+        return view('raffle');
+    })->name('raffle');
+});
+
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

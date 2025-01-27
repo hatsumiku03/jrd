@@ -76,9 +76,12 @@
                     <div class="flex justify-between h-16">
                         <div class="flex"> 
                             <div class="ms-3 relative text-gray-400 -mx-3 flex flex-1 justify-end space-x-3 sm:-my-px sm:ms-10 sm:flex mr-1">
+                                <x-nav-link wire:navigate href="{{ route('raffle') }}" :active="request()->routeIs(['raffle', 'users', 'penyas'])">
+                                    {{ __('Sorteo') }}
+                                </x-nav-link>
                                 <x-nav-link wire:navigate href="{{ route('management') }}" :active="request()->routeIs(['management', 'users', 'penyas'])">
                                     {{ __('Gestión') }}
-                                </x-nav-link>        
+                                </x-nav-link>     
                             </div>
                         </div>
                     </div>
@@ -197,6 +200,9 @@
                 </x-responsive-nav-link>
                 <!-- Admin links when is in any route except perfectmanagement -->
                 @if (Auth::user()->role_id == 1)    
+                <x-responsive-nav-link  wire:navigate href="{{ route('raffle') }}" :active="request()->routeIs('raffle')">
+                    {{ __('Sorteo') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link  wire:navigate href="{{ route('management') }}" :active="request()->routeIs('management')">
                     {{ __('Gestión') }}
                 </x-responsive-nav-link>

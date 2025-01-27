@@ -1,4 +1,4 @@
-<div class="text-white bg-black/50 text-center p-6 text-xl border-2 border-[#404040]">
+<div class="text-white bg-black/70 text-center p-6 text-xl border-2 border-[#404040]">
     
     <h1 class="text-5xl mb-8 font-bold">¿Qué son las peñas?</h1>
     

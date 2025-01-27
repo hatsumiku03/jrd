@@ -14,8 +14,8 @@
                         <h2 class="text-gray-100 text-4xl font-bold font-manrope leading-normal lg:text-start text-center">Horario</h2>
                         <div class="ml-3">
                             <ul class="list-disc ml-5">
-                                <li class="mb-1">Fecha de inicio &nbsp<span class="bg-blue-600 text-white p-0.5 rounded border-[1px]">03/08</span></li>
-                                <li>Fecha de fin &nbsp<span class="bg-blue-600 text-white p-0.5 rounded border-[1px]">11/08</span></li>
+                                <li class="mb-1">Fecha de inicio &nbsp<span class="bg-[#efefef] text-black p-0.5 rounded border-[1px]">03/08</span></li>
+                                <li>Fecha de fin &nbsp<span class="bg-[#efefef] text-black p-0.5 rounded border-[1px]">11/08</span></li>
                             </ul>
                         </div>
 
@@ -44,6 +44,7 @@
                     frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
                 </iframe>
             </div>
+            
         </div>
     </div>
 </section>
