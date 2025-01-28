@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('crews_id')->constrained(
                 table: 'crews', indexName: 'crewsDraws_id'
             );
-            $table->foreignId('location_id')->constrained(
-                table: 'location', indexName: 'locationDraws_id'
+            $table->foreignId('locations_id')->constrained(
+                table: 'locations', indexName: 'locationDraws_id'
             );
             $table->timestamps();
         });
