@@ -9,7 +9,6 @@
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ad fugit ipsam, ex veritatis ab modi earum, quod doloremque, est sit at accusantium eaque. Dicta numquam libero est minus quod? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum et esse, vel nemo sequi voluptas unde voluptates. Molestias, perferendis ducimus minima repellendus iusto alias asperiores delectus libero vitae inventore pariatur?
                         </p>
                     </div>
-
                     <div class="text-gray-200">
                         <h2 class="text-gray-100 text-4xl font-bold font-manrope leading-normal lg:text-start text-center">Horario</h2>
                         <div class="ml-3">
@@ -18,13 +17,10 @@
                                 <li>Fecha de fin &nbsp<span class="bg-[#efefef] text-black p-0.5 rounded border-[1px]">11/08</span></li>
                             </ul>
                         </div>
-
                         
                     </div>
-
                     <div class="text-gray-200">
                         <h3 class="text-2xl font-bold">Contactanos</h3>
-
                             <div class="ml-4">
                                 <div class="flex gap-2 items-center mb-2 mt-3">
                                     <x-fontisto-email class="w-6 h-6" /><a href="mailto:lespenyesenfestes@gmail.com">lespenyesenfestes@gmail.com</a>

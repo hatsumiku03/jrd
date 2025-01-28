@@ -22,8 +22,10 @@
         @livewireStyles
     </head>
     <body class="bg-[#404040]">
-            @livewire('navigation-menu')
-            <p class="text-white"> Skibidi Toilet</p>
+            @include('navigation-menu')
+
+                @livewire('draws-panel')
+
             @livewireScripts
     </body>
 </html>

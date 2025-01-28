@@ -48,7 +48,6 @@
 
 <!-- Form -->
 @livewire('home-form')
-<!-- Maps -->
 
 <!-- Footer  -->
 @include('components.footer')
