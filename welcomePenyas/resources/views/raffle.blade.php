@@ -24,12 +24,7 @@
     <body class="bg-[#404040]">
             @include('navigation-menu')
 
-                <div class="flex flex-col items-center justify-center min-h-screen py-2">
-                    <div class="p-36 bg-black rounded-md">
-                        @livewire('draws-panel')
-                    </div>
-                </div>
-
+            @livewire('draws-panel')
             @livewireScripts
     </body>
 </html>
