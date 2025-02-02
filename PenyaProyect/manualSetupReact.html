@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual: Integrar React en Laravel 11</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            color: #d6336c;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 10px;
+            border-left: 5px solid #0c5460;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Manual: Integrar React en Laravel 11</h1>
+    <p>Este manual detalla los pasos necesarios para integrar React en un proyecto Laravel 11 ya creado y generar un primer componente React de prueba.</p>
+
+    <h2>1. Requisitos previos</h2>
+    <ul>
+        <li>Un proyecto Laravel 11 ya creado.</li>
+        <li>Docker configurado con un servidor Nginx y PHP.</li>
+        <li>NPM instalado en tu máquina.</li>
+    </ul>
+
+    <h2>2. Instalación de dependencias</h2>
+    <p>Ejecuta los siguientes comandos en la raíz de tu proyecto:</p>
+    <pre><code>npm install react react-dom
+npm install --save-dev @vitejs/plugin-react</code></pre>
+
+    <h2>3. Configuración de Vite para React</h2>
+    <p>Edita el archivo <code>vite.config.js</code> en la raíz del proyecto. Si no existe, créalo y añade lo siguiente:</p>
+    <pre><code>import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/js/app.jsx'],
+            refresh: true,
+        }),
+        react(),
+    ],
+});</code></pre>
+
+    <h2>4. Crear el punto de entrada de React</h2>
+    <p>En la carpeta <code>resources/js</code>, crea un archivo llamado <code>app.jsx</code> con el siguiente contenido:</p>
+    <pre><code>import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function App() {
+    return <h4>Hello, World!</h4>
+}
+
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App />);</code></pre>
+
+    <h2>5. Configurar la vista de Laravel</h2>
+    <p>Edita o crea un archivo de vista Blade, por ejemplo, <code>resources/views/VIEW_SELECTED.blade.php</code>, y añade lo siguiente:</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Laravel React&lt;/title&gt;
+    @vite('resources/js/app.jsx')
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h2>6. Compilar los recursos</h2>
+    <p>Ejecuta el siguiente comando para compilar los recursos del frontend:</p>
+    <pre><code>npm run dev</code></pre>
+    <div class="note">
+        <p>Si deseas generar una compilación para producción, utiliza:</p>
+        <pre><code>npm run build</code></pre>
+    </div>
+
+    <h2>7. Verificar la integración</h2>
+    <p>Accede a la URL del proyecto (<code>http://localhost:8080/ROUTE_SELECTED</code>. Deberías ver el mensaje <strong>Hello, World!</strong> en la pantalla.</p>
+
+    <h2>¡Todo listo!</h2>
+    <p>Has integrado React en tu proyecto Laravel y creado tu primer componente React. A partir de aquí, puedes añadir más componentes y construir aplicaciones dinámicas.</p>
+</body>
+</html>

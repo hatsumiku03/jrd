@@ -27,11 +27,10 @@
 
 
         @livewire('create-crew', ['crewCreation' => $crewCreation])
-                
     </div>
             <table class="w-full text-sm text-center rtl:text-center text-gray-400">
                 <thead class="text-xs uppercase bg-[#171717] text-gray-300">
-                    <tr>``
+                    <tr>
                         <th scope="col" class="px-6 py-3">
                             Nombre 
                         </th>
