@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('x');
             $table->string('y');
-            $table->date('year');
+            $table->year('year');
             $table->timestamps();
         });
     }

@@ -5,19 +5,41 @@
                 <h1 class="mt-2 text-3xl font-medium text-gray-200">
                     Generador de sorteo de peñas
                 </h1>
-                <x-button class="mt-6" wire:click='draw()'>Sortear</x-button>
-                
-                {{-- <div class="relative">
-                    <div class="flex items-center justify-center">
-                        <div class="border-l border-[#232c39] h-72 mx-auto absolute"></div>
+
+                <!-- Botón de sorteo -->
+                @if ($showDrawButton)
+                    <x-button class="mt-6" wire:click="draw">Sortear</x-button>
+                @else
+                    <p class="mt-6 text-gray-200">El sorteo ya se ha realizado para este año.</p>
+                    <x-button class="mt-6" wire:click="resetThisYearCrews">Reiniciar</x-button>
+                @endif
+
+                <!-- Mostrar mensajes de éxito o error -->
+                @if (session('success'))
+                    <div class="mt-6 p-4 bg-green-500 text-white rounded">
+                        {{ session('success') }}
                     </div>
-                </div> --}}
+                @endif
+                @if (session('error'))
+                    <div class="mt-6 p-4 bg-red-500 text-white rounded">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
-                <!-- Vista del sorteo generado-->
-                
-
-                <!-- Años anteriores -->
-                
+                <!-- Cuadrícula -->
+                <div class="mt-6">
+                    <table class="w-full border-collapse">
+                        @for ($y = 0; $y < $MAX_HEIGHT; $y++)
+                            <tr>
+                                @for ($x = 0; $x < $MAX_WIDTH; $x++)
+                                    <td class="border border-gray-400 p-2 text-center text-gray-200">
+                                        {{ $grid[$y][$x] ?? '·' }}
+                                    </td>
+                                @endfor
+                            </tr>
+                        @endfor
+                    </table>
+                </div>
             </div>
         </div>
     </div>

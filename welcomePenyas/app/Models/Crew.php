@@ -25,4 +25,9 @@ class Crew extends Model
     public function user(){
         return $this->hasMany(User::class);
     }
+
+    public function location()
+    {
+        return $this->belongsToMany(Location::class, 'draws', 'crew_id', 'location_id');
+    }
 }
