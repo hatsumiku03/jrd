@@ -8,11 +8,12 @@ use App\Models\Location;
 
 class DrawsPanel extends Component
 {
-    public $MAX_WIDTH = 10; // Ancho máximo de la cuadrícula
+    public $MAX_WIDTH = 10; // Ancho máximo de la NNN
     public $MAX_HEIGHT = 10; // Alto máximo de la cuadrícula
     public $year; // Año actual
     public $grid = []; // Cuadrícula para mostrar en la vista
     public $showDrawButton = true; // Mostrar botón de sorteo
+    public $showDraw = false; // Mostrar el sorteo
 
     public function mount()
     {
@@ -32,6 +33,11 @@ class DrawsPanel extends Component
         // Si hay ubicaciones, deshabilitar el botón de sorteo
         if ($locations->count() > 0) {
             $this->showDrawButton = false;
+        }
+
+        // Si no hay ubicaciones, no se muestra nada
+        if ($locations->count() < 0) {
+            $this->showDraw = true;
         }
     
         // Llenar la cuadrícula con las ubicaciones existentes
@@ -90,6 +96,7 @@ class DrawsPanel extends Component
         // Recargar la cuadrícula
         $this->loadGrid();
         $this->showDrawButton = false;
+        $this->showDraw = true;
         session()->flash('success', 'Sorteo realizado correctamente.');
     }
 
@@ -114,7 +121,6 @@ class DrawsPanel extends Component
         return !in_array($coord, $places);
     }
 
-    // Renderizar la vista
     public function render()
     {
         return view('livewire.draws-panel');

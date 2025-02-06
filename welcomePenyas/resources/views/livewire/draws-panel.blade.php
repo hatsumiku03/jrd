@@ -27,20 +27,22 @@
                 @endif
 
                 <!-- Cuadrícula -->
+                {{-- @if ($showDraw) --}}
                 <div class="mt-6">
                     <table class="w-full border-collapse">
                         @for ($y = 0; $y < $MAX_HEIGHT; $y++)
-                            <tr>
-                                @for ($x = 0; $x < $MAX_WIDTH; $x++)
-                                    <td class="border border-gray-400 p-2 text-center text-gray-200">
-                                        {{ $grid[$y][$x] ?? '·' }}
-                                    </td>
-                                @endfor
-                            </tr>
+                        <tr>
+                            @for ($x = 0; $x < $MAX_WIDTH; $x++)
+                            <td class="border border-gray-400 p-2 text-center text-gray-200">
+                                {{ $grid[$y][$x] ?? '.' }}
+                            </td>
+                            @endfor
+                        </tr>
                         @endfor
                     </table>
                 </div>
             </div>
+            {{-- @endif --}}
         </div>
     </div>
 </div>
