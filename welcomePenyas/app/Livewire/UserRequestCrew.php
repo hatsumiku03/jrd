@@ -6,18 +6,22 @@ use Livewire\Component;
 use App\Models\Crew;
 use App\Models\Request;
 use App\Models\UserCrew;
+use App\Models\User;
 
 class UserRequestCrew extends Component
 {
     public $crews;
+    public $CrewOfTheUser;
     public $crewId;
     public $userId;
     public $canRequest = true;
     public $regularUsers = 2;
+    public $pendingRequest = false;
 
     public function mount()
     {
         $this->crews = Crew::all();
+        $this->CrewOfTheUser = UserCrew::with('crew')->where('user_id', $this->userId)->first();
         $this->userId = auth()->user()->id;
 
         $activeUserRequest = Request::where('users_id', $this->userId)->exists();
@@ -32,10 +36,12 @@ class UserRequestCrew extends Component
 
     public function sendRequest()
     {
-        Request::create([
-            'users_id' => $this->userId,
-            'crews_id' => $this->crewId,
-        ]);
+
+        dd($this->crewId);
+        // Request::create([
+        //     'users_id' => $this->userId,
+        //     'crews_id' => $this->crewId,
+        // ]);
 
         session()->flash('success', 'Tu solicitud ha sido enviada correctamente');
         return redirect()->route('dashboard');

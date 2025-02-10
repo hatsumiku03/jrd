@@ -85,10 +85,11 @@ class DatabaseSeeder extends Seeder
             ]);
         
 
-        UserCrew::factory()->create([
-            'user_id' => 2,
-            'crew_id' => 1
-        ]);
+        // Martiluski in Los Babus    
+        // UserCrew::factory()->create([
+        //     'user_id' => 2,
+        //     'crew_id' => 1
+        // ]);
 
         UserCrew::factory()->create([
             'user_id' => 3,

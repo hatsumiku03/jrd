@@ -33,8 +33,8 @@
                         @for ($y = 0; $y < $MAX_HEIGHT; $y++)
                         <tr>
                             @for ($x = 0; $x < $MAX_WIDTH; $x++)
-                            <td class="border border-gray-400 p-2 text-center text-gray-200">
-                                {{ $grid[$y][$x] ?? '.' }}
+                            <td class="border border-gray-400 p-5 text-center text-gray-200">
+                                {{ $grid[$y][$x] ?? '' }}
                             </td>
                             @endfor
                         </tr>

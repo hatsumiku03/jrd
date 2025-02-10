@@ -8,17 +8,17 @@ use App\Models\Location;
 
 class DrawsPanel extends Component
 {
-    public $MAX_WIDTH = 10; // Ancho máximo de la NNN
-    public $MAX_HEIGHT = 10; // Alto máximo de la cuadrícula
-    public $year; // Año actual
-    public $grid = []; // Cuadrícula para mostrar en la vista
-    public $showDrawButton = true; // Mostrar botón de sorteo
-    public $showDraw = false; // Mostrar el sorteo
+    public $MAX_WIDTH = 10;
+    public $MAX_HEIGHT = 10;
+    public $actualYear;
+    public $grid = [];
+    public $showDrawButton = true;
+    public $showDraw = false;
 
     public function mount()
     {
-        $this->year = now()->year; // Establecer el año actual
-        $this->loadGrid(); // Cargar la cuadrícula al iniciar
+        $this->actualYear = now()->year;
+        $this->loadGrid();
     }
 
     // Cargar la cuadrícula con las ubicaciones existentes
@@ -28,7 +28,7 @@ class DrawsPanel extends Component
         $this->grid = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
     
         // Obtener las ubicaciones para el año actual con la relación "crews"
-        $locations = Location::where('year', $this->year)->with('crew')->get();
+        $locations = Location::where('year', $this->actualYear)->with('crew')->get();
         
         // Si hay ubicaciones, deshabilitar el botón de sorteo
         if ($locations->count() > 0) {
@@ -50,12 +50,6 @@ class DrawsPanel extends Component
     
     public function draw()
     {
-        // Verificar si ya hay ubicaciones para este año
-        if (Location::where('year', $this->year)->exists()) {
-            session()->flash('error', 'Ya se ha realizado un sorteo para este año.');
-            return;
-        }
-    
         // Obtener todas las peñas
         $crews = Crew::all();
     
@@ -80,13 +74,12 @@ class DrawsPanel extends Component
             }
         }
     
-        // Guardar las ubicaciones y las relaciones en la base de datos
         foreach ($places as $crewId => $coord) {
             // Crear la ubicación
             $location = Location::create([
                 'x' => $coord[0],
                 'y' => $coord[1],
-                'year' => $this->year,
+                'year' => $this->actualYear,
             ]);
     
             // Relacionar la ubicación con la peña en la tabla draws
@@ -101,9 +94,8 @@ class DrawsPanel extends Component
     }
 
     public function resetThisYearCrews(){
-        $locations = Location::where('year', $this->year)->get();
+        $locations = Location::where('year', $this->actualYear)->get();
 
-        // Eliminar las relaciones en la tabla draws
         foreach ($locations as $location) {
             $location->crew()->detach();
             $location->delete();

@@ -1,4 +1,4 @@
-<title>Dashboard</title>
+<title>Panel del usuario</title>
 <x-app-layout>
     {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-200 leading-tight">
@@ -8,7 +8,7 @@
     
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="text-gray-300 bg-[#747474]">
+            <div class="text-gray-300 bg-[#747474] rounded-md border-2 border-slate-300 p-1">
                 @livewire('user-request-crew')
             </div>
         </div>
