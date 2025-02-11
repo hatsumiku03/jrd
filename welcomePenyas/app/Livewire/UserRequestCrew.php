@@ -6,42 +6,45 @@ use Livewire\Component;
 use App\Models\Crew;
 use App\Models\Request;
 use App\Models\UserCrew;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserRequestCrew extends Component
 {
     public $crews;
     public $CrewOfTheUser;
+
+    public $RequestCrew;
     public $crewId;
     public $userId;
     public $canRequest = true;
     public $regularUsers = 2;
-    public $pendingRequest = false;
+    public $inCrew = false;
 
     public function mount()
     {
         $this->crews = Crew::all();
-        $this->CrewOfTheUser = UserCrew::with('crew')->where('user_id', $this->userId)->first();
+        $this->CrewOfTheUser = Auth::user()->userCrew ? Auth::user()->userCrew->crew->name : null;
         $this->userId = auth()->user()->id;
+        $this->crewId = $this->crews->isNotEmpty() ? $this->crews->first()->id : null;
 
         $activeUserRequest = Request::where('users_id', $this->userId)->exists();
         $activeUserCrew = UserCrew::where('user_id', $this->userId)->exists();
 
-        // Esto se ha de cambiar ya que quiero separar el mensaje de esperando aunirse a una peña, y un
-        // display de que ya estas en una peña
         if($activeUserCrew | $activeUserRequest){
             $this->canRequest = false;
+        }
+        
+        if($activeUserCrew && !$activeUserRequest){
+            $this->inCrew = true;
         }
     }
 
     public function sendRequest()
     {
-
-        dd($this->crewId);
-        // Request::create([
-        //     'users_id' => $this->userId,
-        //     'crews_id' => $this->crewId,
-        // ]);
+        Request::create([
+            'users_id' => $this->userId,
+            'crews_id' => $this->crewId,
+        ]);
 
         session()->flash('success', 'Tu solicitud ha sido enviada correctamente');
         return redirect()->route('dashboard');

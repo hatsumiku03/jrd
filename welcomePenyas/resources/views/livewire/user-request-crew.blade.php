@@ -1,6 +1,6 @@
 <div>
 	@if (session()->has('success'))
-	<div>{{ session('success') }}</div>
+	<div class="m-1 bg-green-600 text-slate-300 p-1 rounded-md w-fit">{{ session('success') }}</div>
 	@endif
 	
 	@if ($canRequest && Auth::user()->role_id == $regularUsers && $crews->count() > 0)      
@@ -9,9 +9,9 @@
 		<br>Aquí le dejamos un listado de peñas a las que puede unirse. haga click encima del nombre de una peña si quiere ver información extendida de la misma.
 	</p>
 	
-	<ul class="m-2 ml-9 text-white list-disc">
+	<ul class="m-2 ml-9 text-slate-200 list-disc">
 		@foreach($crews as $crew)
-		<li>{{ $crew->name }}</li>
+		<li><span class="hover:underline hover:text-white cursor-pointer">{{ $crew->name }}</span></li>
 		@endforeach
 	</ul>
 
@@ -32,10 +32,10 @@
 	@elseif($crews->count() > 0)
 	<p class="m-2">Buenos días señor@, {{ Auth::user()->name }}, que tal se encuentra?</p>
 	
-		@if($pendingRequest)
-			<p class="m-2">Su solicitud de unión a la peña {{ $CrewOfTheUser }} está pendiente de aprobación.</p>
+		@if(!$canRequest && !$inCrew)		
+			<p class="m-2">Su solicitud de unión a la peña <span class="hover:underline hover:text-white cursor-pointer">{{ Auth::user()->request->crew->name}}</span> está pendiente de aprobación.</p>
 		@else
-			<p>Actualmente forma parte de la peña {{ $CrewOfTheUser }}</p>
+			<p class="m-2">Actualmente forma parte de la peña <span class="hover:underline hover:text-white cursor-pointer">{{ $CrewOfTheUser }}</span></p>
 		@endif
 
 		@else

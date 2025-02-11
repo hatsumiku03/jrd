@@ -75,7 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(UserCrew::class);
     }
 
-    public function inCrew(){
+    public function inCrew(){   
         return $this->userCrew()->exists();
     }
     

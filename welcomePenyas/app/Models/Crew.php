@@ -30,4 +30,9 @@ class Crew extends Model
     {
         return $this->belongsToMany(Location::class, 'draws', 'crew_id', 'location_id');
     }
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class, 'crews_id');
+    }
 }

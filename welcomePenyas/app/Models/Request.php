@@ -10,4 +10,14 @@ class Request extends Model
         'crews_id',
         'users_id',
     ];
+
+    public function crew()
+    {
+        return $this->belongsTo(Crew::class, 'crews_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
 }
