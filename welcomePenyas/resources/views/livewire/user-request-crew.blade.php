@@ -33,9 +33,9 @@
 	<p class="m-2">Buenos días señor@, {{ Auth::user()->name }}, que tal se encuentra?</p>
 	
 		@if(!$canRequest && !$inCrew)		
-			<p class="m-2">Su solicitud de unión a la peña <span class="hover:underline hover:text-white cursor-pointer">{{ Auth::user()->request->crew->name}}</span> está pendiente de aprobación.</p>
+			<p class="m-2">Su solicitud de unión a la peña <span class="hover:underline hover:text-white cursor-pointer">{{ Auth::user()->request->crew->name}}</span> está pendiente de aprobación. 🔴</p>
 		@else
-			<p class="m-2">Actualmente forma parte de la peña <span class="hover:underline hover:text-white cursor-pointer">{{ $CrewOfTheUser }}</span></p>
+			<p class="m-2">Actualmente forma parte de la peña <span class="hover:underline hover:text-white cursor-pointer">{{ $CrewOfTheUser }}</span> ✅</p>
 		@endif
 
 		@else
