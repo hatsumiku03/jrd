@@ -33,17 +33,13 @@ class DrawsPanel extends Component
         // Si hay ubicaciones, deshabilitar el botón de sorteo
         if ($locations->count() > 0) {
             $this->showDrawButton = false;
-        }
-
-        // Si no hay ubicaciones, no se muestra nada
-        if ($locations->count() < 0) {
             $this->showDraw = true;
         }
     
         // Llenar la cuadrícula con las ubicaciones existentes
         foreach ($locations as $location) {
             if ($location->crew && $location->crew->isNotEmpty()) {
-                $this->grid[$location->y][$location->x] = $location->crew->first()->name;
+                $this->grid[$location->y][$location->x] = $location->crew->first()->logo;
             }
         }
     }
@@ -103,7 +99,6 @@ class DrawsPanel extends Component
     
         // Recargar la cuadrícula
         $this->loadGrid();
-        $this->showDrawButton = true;
         session()->flash('success', 'Sorteo reiniciado correctamente.');
     }
 
