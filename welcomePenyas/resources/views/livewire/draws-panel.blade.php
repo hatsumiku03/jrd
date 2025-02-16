@@ -25,37 +25,17 @@
                         {{ session('error') }}
                     </div>
                 @endif
-
-                <!-- Cuadrícula -->
-                {{-- @if ($showDraw)
-                <div class="mt-6">
-                    <table class="w-full border-collapse">
-                        @for ($y = 0; $y < $MAX_HEIGHT; $y++)
-                        <tr>
-                            @for ($x = 0; $x < $MAX_WIDTH; $x++)
-                            <td class="border border-gray-400 p-5 text-center text-gray-200 w-4 h-4">
-                                @if($grid[$y][$x] ?? false)
-                                    <img src="{{ asset('storage/' . ($grid[$y][$x])) }}" class="">
-                                @endif
-                            </td>
-                            @endfor
-                        </tr>
-                        @endfor
-                    </table>
-                </div>
-            </div>
-            @endif --}}
             @if ($showDraw)
             <div class="mt-6">
                 <div class="border border-gray-400">
                     @for ($y = 0; $y < $MAX_HEIGHT; $y++)
                         <div class="flex">
                             @for ($x = 0; $x < $MAX_WIDTH; $x++)
-                                <div class="border border-gray-400 p-5 text-center text-gray-200 w-full h-full">
-                                    @if($grid[$y][$x] ?? false)
-                                        <img src="{{ asset('storage/' . ($grid[$y][$x])) }}">
-                                    @endif
-                                </div>
+                            <div class="border border-gray-400 p-10 text-center text-gray-200 w-full h-full bg-cover bg-center" style="background-image: url('{{ $grid[$y][$x] ? asset('storage/' . $grid[$y][$x]) : '' }}');" title="{{ $grid[$y][$x] ? $crewName[$y][$x] : '' }}">
+                                @if(!$grid[$y][$x])
+                                    <span></span>
+                                @endif
+                            </div>
                             @endfor
                         </div>
                     @endfor

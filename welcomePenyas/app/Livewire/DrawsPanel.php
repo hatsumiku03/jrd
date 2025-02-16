@@ -12,6 +12,7 @@ class DrawsPanel extends Component
     public $MAX_HEIGHT = 10;
     public $actualYear;
     public $grid = [];
+    public $crewName = [];
     public $showDrawButton = true;
     public $showDraw = false;
 
@@ -26,7 +27,7 @@ class DrawsPanel extends Component
     {
         // Inicializar la cuadrícula vacía
         $this->grid = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
-    
+        $this->crewName = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
         // Obtener las ubicaciones para el año actual con la relación "crews"
         $locations = Location::where('year', $this->actualYear)->with('crew')->get();
         
@@ -40,6 +41,7 @@ class DrawsPanel extends Component
         foreach ($locations as $location) {
             if ($location->crew && $location->crew->isNotEmpty()) {
                 $this->grid[$location->y][$location->x] = $location->crew->first()->logo;
+                $this->crewName[$location->y][$location->x] = $location->crew->first()->name;
             }
         }
     }
@@ -86,7 +88,7 @@ class DrawsPanel extends Component
         $this->loadGrid();
         $this->showDrawButton = false;
         $this->showDraw = true;
-        session()->flash('success', 'Sorteo realizado correctamente.');
+        session()->flash('success', 'Sorteo realizado ✅');
     }
 
     public function resetThisYearCrews(){
@@ -99,7 +101,10 @@ class DrawsPanel extends Component
     
         // Recargar la cuadrícula
         $this->loadGrid();
-        session()->flash('success', 'Sorteo reiniciado correctamente.');
+        $this->showDrawButton = true;
+        $this->showDraw = false;
+        session()->flash('success', 'Sorteo reiniciado ✅');
+        // return redirect()->route('raffle');
     }
 
     // Validar si una coordenada ya está ocupada
