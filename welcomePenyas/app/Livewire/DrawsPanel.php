@@ -11,6 +11,7 @@ class DrawsPanel extends Component
     public $MAX_WIDTH = 10;
     public $MAX_HEIGHT = 10;
     public $actualYear;
+    public $years = [];
     public $grid = [];
     public $crewName = [];
     public $showDrawButton = true;
@@ -57,7 +58,7 @@ class DrawsPanel extends Component
             return;
         }
     
-        // Generar coordenadas aleatorias únicas para cada peña
+        // Generar coordenadas aleatorias que no se repiten para cada peña
         $places = [];
         foreach ($crews as $crew) {
             $isValidCoord = false;
@@ -71,9 +72,10 @@ class DrawsPanel extends Component
                 }
             }
         }
-    
+        
+        
+        // Crear la ubicación    
         foreach ($places as $crewId => $coord) {
-            // Crear la ubicación
             $location = Location::create([
                 'x' => $coord[0],
                 'y' => $coord[1],
@@ -104,7 +106,6 @@ class DrawsPanel extends Component
         $this->showDrawButton = true;
         $this->showDraw = false;
         session()->flash('success', 'Sorteo reiniciado ✅');
-        // return redirect()->route('raffle');
     }
 
     // Validar si una coordenada ya está ocupada

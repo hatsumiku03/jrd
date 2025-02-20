@@ -10,7 +10,7 @@
     <div class="relative bg-[#404040] rounded-lg shadow" @click.away="show=false">
         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
             <h3 class="text-lg font-semibold text-white">
-                Create New User
+                Crear una nueva peña
             </h3>
             <button @click="show = false"
                 class="text-gray-400 bg-transparent hover:bg-gray-600 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -89,12 +89,12 @@
             <div class="mt-4">
                 <x-label for="color" value="{{ __('Color') }}" class="block mb-2 text-sm font-medium text-white" />
                 <select id="color" wire:model.defer="color" class="bg-[#262626] rounded-xl border border-gray-500 text-white text-sm focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-                    <option value="">Select a color</option>
-                    <option value="red-500">Red</option>
-                    <option value="blue-500">Blue</option>
-                    <option value="green-500">Green</option>
-                    <option value="violet-500">Purple</option>
-                    <option value="yellow-500">Yellow</option>
+                    <option value="">Selecciona un color</option>
+                    <option value="red-500">Rojo</option>
+                    <option value="blue-500">Azul</option>
+                    <option value="green-500">Verde</option>
+                    <option value="violet-500">Morado</option>
+                    <option value="yellow-500">Amarillo</option>
                 </select>
                 @error('color')
                     <span class="text-red-500">{{ $message }}</span>

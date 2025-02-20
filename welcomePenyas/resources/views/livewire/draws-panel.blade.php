@@ -31,9 +31,10 @@
                     @for ($y = 0; $y < $MAX_HEIGHT; $y++)
                         <div class="flex">
                             @for ($x = 0; $x < $MAX_WIDTH; $x++)
-                            <div class="border border-gray-400 p-10 text-center text-gray-200 w-full h-full bg-cover bg-center" style="background-image: url('{{ $grid[$y][$x] ? asset('storage/' . $grid[$y][$x]) : '' }}');" title="{{ $grid[$y][$x] ? $crewName[$y][$x] : '' }}">
+                            <div class="border border-gray-400 p-10 text-gray-200 w-full h-full bg-cover bg-center align-center relative" 
+                            style="background-image: url('{{ $grid[$y][$x] ? asset('storage/' . $grid[$y][$x]) : '' }}');" title="{{ $grid[$y][$x] ? $crewName[$y][$x] : '' }}">
                                 @if(!$grid[$y][$x])
-                                    <span></span>
+                                    <span class="absolute inset-0 flex items-center justify-center">{{$crewName[$y][$x] }}</span>
                                 @endif
                             </div>
                             @endfor

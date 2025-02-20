@@ -92,12 +92,12 @@
                         {{-- Color --}}
                         <td class="px-6 py-4 text-{{ $crew->color }}">
                             <select class="w-full bg-[#262626] rounded-xl" wire:model.defer="crewsData.{{ $crew->id }}.color"> 
-                                    <option class="text-gray-400" value="">No selected</option>
-                                    <option class="text-gray-400" value="red-500">Red</option>
-                                    <option class="text-gray-400" value="blue-500">Blue</option>
-                                    <option class="text-gray-400" value="green-500">Green</option>
-                                    <option class="text-gray-400" value="violet-500">Purple</option>
-                                    <option class="text-gray-400" value="yellow-500">Yellow</option>
+                                    <option class="text-gray-400" value="">Sin elegir</option>
+                                    <option class="text-gray-400" value="red-500">Rojo</option>
+                                    <option class="text-gray-400" value="blue-500">Azul</option>
+                                    <option class="text-gray-400" value="green-500">Verde</option>
+                                    <option class="text-gray-400" value="violet-500">Morado</option>
+                                    <option class="text-gray-400" value="yellow-500">Amarillo</option>
                             </select>
                             @error('crewsData.{{ $crew->id }}.color') <span class="text-red-500">{{ $message }}</span> @enderror
                         </td>

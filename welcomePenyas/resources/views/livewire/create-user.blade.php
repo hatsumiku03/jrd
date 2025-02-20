@@ -10,7 +10,7 @@
         <div class="relative bg-[#404040] rounded-lg shadow" @click.away="show=false">
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
                 <h3 class="text-lg font-semibold text-white">
-                    Create New User
+                    Crear un nuevo usuario
                 </h3>
                 <button @click="show = false"
                     class="text-gray-400 bg-transparent hover:bg-gray-600 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"

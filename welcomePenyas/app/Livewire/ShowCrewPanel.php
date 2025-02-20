@@ -38,7 +38,7 @@ class ShowCrewPanel extends Component
             'crewsData.'.$id.'.capacity_people' => 'required|integer|min:0',
             'crewsData.'.$id.'.foundation_date' => 'nullable|date|after_or_equal:1950-01-01',
         ]);
-
+            
         // Esto es una verificación en el que comprobamos que la variable crewData no sea null y se este
         // pillando la ruta del archivo bien, y por otra parte, el is_object es un campo opcional
         // para asegurarnos 100% de que en ningún caso se pueda subir un archivo que no sea una imagen
