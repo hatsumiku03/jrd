@@ -19,6 +19,7 @@ class UserRequestCrew extends Component
     public $canRequest = true;
     public $regularUsers = 2;
     public $inCrew = false;
+    public $showCrewSlider = true;
 
     public function mount()
     {

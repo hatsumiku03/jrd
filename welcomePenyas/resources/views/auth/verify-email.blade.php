@@ -19,9 +19,9 @@
                 @csrf
 
                 <div>
-                    <x-button type="submit">
+                    <button type="submit" class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded ms-4">
                         {{ __('Reenviar verificación') }}
-                    </x-button>
+                    </button>
                 </div>
             </form>
 

@@ -25,9 +25,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <button class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded">
                     {{ __('Enviar correo') }}
-                </x-button>
+                </button>
             </div>
         </form>
     </x-authentication-card>

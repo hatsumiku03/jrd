@@ -52,8 +52,6 @@
 <!-- Footer  -->
 @include('components.footer')
 
-<div class="app">></div>
-@vite('resources/js/components/Alert.jsx')
 @livewireScripts
 </body>
 </html>

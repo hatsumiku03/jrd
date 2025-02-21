@@ -11,7 +11,7 @@
 	
 	<ul class="m-2 ml-9 text-slate-200 list-disc">
 		@foreach($crews as $crew)
-		<li><span class="hover:underline hover:text-white cursor-pointer">{{ $crew->name }}</span></li>
+		<li><span class="hover:underline hover:text-white cursor-pointer" wire:click='showCrewSlider=true'>{{ $crew->name }}</span></li>
 		@endforeach
 	</ul>
 
@@ -41,4 +41,6 @@
 		@else
 		<p class="m-2">Actualmente no disponemos de peñas en la página web, disculpe las molestias, en cuando hayan se abrirá en esta sección un pequeño formulario para que se pueda inscribir en la que usted desee.</p>
 	@endif
+
+	{{-- @livewire('slider-crew') --}}
 </div>
