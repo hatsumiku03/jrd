@@ -13,7 +13,7 @@
             this.currentImage = (this.currentImage - 1 + {{ count($images) }}) % {{ count($images) }};
             $wire.call('previousImage');
         }
-    }" x-init="autoSkipea" class="grid mt-10 relative overflow-hidden">
+    }" x-init="autoSkipea" class="grid relative overflow-hidden">
     
 <div class="absolute inset-0 bg-black/30"></div>
 

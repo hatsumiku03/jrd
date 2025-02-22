@@ -56,9 +56,9 @@
                     {{ __('¿Ya estás registrado?') }}
                 </a>
 
-                <button class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded ms-4">
+                <x-button class="ms-4">
                     {{ __('Registrar') }}
-                </button>
+                </x-button>
             </div>
         </form>
     </x-authentication-card>

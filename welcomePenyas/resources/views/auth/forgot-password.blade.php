@@ -24,10 +24,10 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <button class="bg-[#262626] transition hover:bg-red-800/60 text-white font-bold py-2 px-4 rounded">
+            <div class="flex items-center justify-center mt-4">
+                <x-button>
                     {{ __('Enviar correo') }}
-                </button>
+                </x-button>
             </div>
         </form>
     </x-authentication-card>
