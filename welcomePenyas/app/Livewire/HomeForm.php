@@ -10,12 +10,12 @@ class HomeForm extends Component
 {
     public $name;
     public $email;
-    public $message;
+    public $content;
 
     protected $rules = [
-        'name' => 'required|min:3',
+        'name' => 'required',
         'email' => 'required|email',
-        'message' => 'required|min:10',
+        'content' => 'required',
     ];
 
     public function submit()
@@ -23,10 +23,10 @@ class HomeForm extends Component
         $this->validate();
 
         // Enviar el correo
-        Mail::to('mrbabu@babu.local')->send(new HomeFormMail($this->name, $this->email, $this->message));
+        Mail::to('mrbabu@babu.local')->send(new HomeFormMail($this->name, $this->email, $this->content));
 
         // Limpiar el formulario
-        $this->reset(['name', 'email', 'message']);
+        $this->reset(['name', 'email', 'content']);
 
         // Mostrar un mensaje de éxito
         session()->flash('message', '¡Gracias por contactarnos!');

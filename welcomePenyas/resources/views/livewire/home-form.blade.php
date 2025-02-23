@@ -38,11 +38,11 @@
           
           <!-- Message -->
           <div class="mb-4">
-            <x-label class="mb-2" for="message">
+            <x-label class="mb-2" for="content">
               Mensaje
             </x-label>
-            <textarea wire:model='message' name="message" id="message" rows="3" class="border-gray-400 w-full bg-[#262626] text-gray-300 focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm placeholder-gray-300'"></textarea>
-            @error('message') <span class="text-red-500">{{ $message }}</span> @enderror
+            <textarea wire:model='content' id="content" rows="3" class="border-gray-400 w-full bg-[#262626] text-gray-300 focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm placeholder-gray-300"></textarea>
+            @error('content') <span class="text-red-500">{{ $message }}</span> @enderror
           </div>
           
           <!-- Submit Button -->

@@ -82,9 +82,6 @@
                                 <x-nav-link wire:navigate href="{{ route('management') }}" :active="request()->routeIs(['management', 'users', 'penyas'])">
                                     {{ __('Gestión') }}
                                 </x-nav-link>
-                                <x-nav-link wire:navigate href="{{ route('incidents') }}" :active="request()->routeIs(['incidents', 'users', 'penyas'])">
-                                    {{ __('Incidencias') }}
-                                </x-nav-link>
                             </div>
                         </div>
                     </div>
@@ -208,9 +205,6 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link  wire:navigate href="{{ route('management') }}" :active="request()->routeIs('management')">
                     {{ __('Gestión') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link  wire:navigate href="{{ route('incidents') }}" :active="request()->routeIs('incidents')">
-                    {{ __('Incidencias') }}
                 </x-responsive-nav-link>
                 @else
                 <!-- Management no es la ruta que le corresponde tener, cambiar después -->

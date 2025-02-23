@@ -29,16 +29,16 @@ Route::middleware([
     })->name('raffle');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-    \App\Http\Middleware\Roles::class
-])->group(function () {
-    Route::get('/incidencias', function () {
-        return view('incidents');
-    })->name('incidents');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+//     \App\Http\Middleware\Roles::class
+// ])->group(function () {
+//     Route::get('/incidencias', function () {
+//         return view('incidents');
+//     })->name('incidents');
+// });
 
 Route::middleware([
     'auth:sanctum',
