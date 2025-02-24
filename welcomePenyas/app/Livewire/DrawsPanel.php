@@ -11,7 +11,11 @@ class DrawsPanel extends Component
     public $MAX_WIDTH = 10;
     public $MAX_HEIGHT = 10;
     public $actualYear;
+    public $selectedYear;
     public $years = [];
+    public $previousGrid = [];
+    public $previousDraws = [];
+    public $previousCrewName = [];
     public $grid = [];
     public $crewName = [];
     public $showDrawButton = true;
@@ -21,8 +25,26 @@ class DrawsPanel extends Component
     {
         $this->actualYear = now()->year;
         $this->loadGrid();
+        $this->years = Location::distinct()->pluck('year')->toArray();
     }
 
+    public function showSelectedYearDraw()
+    {
+        if ($this->selectedYear) {
+            $locations = Location::where('year', $this->selectedYear)->with('crew')->get();
+            $this->previousDraws = [];
+            $this->previousGrid = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
+            $this->previousCrewName = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
+
+            foreach ($locations as $location) {
+                if ($location->crew && $location->crew->isNotEmpty()) {
+                    $this->previousGrid[$location->y][$location->x] = $location->crew->first()->logo;
+                    $this->previousCrewName[$location->y][$location->x] = $location->crew->first()->name;
+                }
+            }
+        }
+    }
+    
     // Cargar la cuadrícula con las ubicaciones existentes
     public function loadGrid()
     {

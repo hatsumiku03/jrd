@@ -45,6 +45,38 @@
             @endif
         </div>
 
+
+                <!-- Seleccionar año -->
+                <div>
+                    <label for="year">Seleccionar Año:</label>
+                    <select wire:model="selectedYear" id="year" wire:change="showSelectedYearDraw">
+                        <option value="">Seleccione un año</option>
+                        @foreach($years as $year)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            
+                @if($previousDraws)
+                    <h3>Sorteos del año {{ $selectedYear }}</h3>
+                    <div class="mt-6">
+                        <div class="border border-gray-400">
+                            @for ($y = 0; $y < $MAX_HEIGHT; $y++)
+                                <div class="flex">
+                                    @for ($x = 0; $x < $MAX_WIDTH; $x++)
+                                    <div class="border border-gray-400 p-10 text-gray-200 w-full h-full bg-cover bg-center align-center relative" 
+                                    style="background-image: url('{{ $previousGrid[$y][$x] ? asset('storage/' . $previousGrid[$y][$x]) : '' }}');" title="{{ $previousGrid[$y][$x] ? $previousCrewName[$y][$x] : '' }}">
+                                        @if(!$previousGrid[$y][$x])
+                                            <span class="absolute inset-0 flex items-center justify-center">{{$previousCrewName[$y][$x] }}</span>
+                                        @endif
+                                    </div>
+                                    @endfor
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
+                @endif
+
         </div>
     </div>
 </div>

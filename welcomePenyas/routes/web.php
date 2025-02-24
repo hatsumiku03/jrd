@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\Api\DrawController;
 use App\Livewire\AdministratorPanel;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/rifada-padre', function () {
+    return view('user-draw');
+})->name('draw');
 
 Route::middleware([
     'auth:sanctum',
@@ -49,3 +54,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/draw-results', [DrawController::class, 'drawData'])->name('draw.results');

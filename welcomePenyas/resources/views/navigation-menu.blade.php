@@ -92,12 +92,9 @@
                     <div class="flex justify-between h-16">
                         <div class="flex"> 
                             <div class="ms-3 relative text-gray-400 -mx-3 flex flex-1 justify-end space-x-3 sm:-my-px sm:ms-10 sm:flex mr-1">
-                                <x-nav-link wire:navigate href="{{ route('management') }}" :active="request()->routeIs(['management', 'users', 'penyas'])">
-                                    {{ __('Placeholder 1') }}
-                                </x-nav-link>        
-                                <x-nav-link wire:navigate href="{{ route('management') }}" :active="request()->routeIs(['management', 'users', 'penyas'])">
-                                    {{ __('Placeholder 2') }}
-                                </x-nav-link>      
+                                <x-nav-link href="{{ route('draw') }}" :active="request()->routeIs(['draw', 'users', 'penyas'])">
+                                    {{ __('Sorteo de este año') }}
+                                </x-nav-link>            
                             </div>
                         </div>
                     </div>
@@ -208,8 +205,8 @@
                 </x-responsive-nav-link>
                 @else
                 <!-- Management no es la ruta que le corresponde tener, cambiar después -->
-                <x-responsive-nav-link  wire:navigate href="{{ route('management') }}" :active="request()->routeIs('management')">
-                    {{ __('Placeholder') }}
+                <x-responsive-nav-link  href="{{ route('management') }}" :active="request()->routeIs('management')">
+                    {{ __('Sorteo de este año') }}
                 </x-responsive-nav-link> 
                 @endif
                 
