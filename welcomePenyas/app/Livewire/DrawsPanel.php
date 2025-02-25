@@ -11,15 +11,17 @@ class DrawsPanel extends Component
     public $MAX_WIDTH = 10;
     public $MAX_HEIGHT = 10;
     public $actualYear;
-    public $selectedYear;
-    public $years = [];
-    public $previousGrid = [];
-    public $previousDraws = [];
-    public $previousCrewName = [];
     public $grid = [];
     public $crewName = [];
     public $showDrawButton = true;
     public $showDraw = false;
+
+    // | Select variables | //
+    public $selectedYear;
+    public $years = [];
+    public $selectedCrewLogo = [];
+    public $selectedDraw = [];
+    public $selectedName = [];
 
     public function mount()
     {
@@ -28,39 +30,39 @@ class DrawsPanel extends Component
         $this->years = Location::distinct()->pluck('year')->toArray();
     }
 
+    // For the selected year, show the draw of other years
     public function showSelectedYearDraw()
     {
         if ($this->selectedYear) {
             $locations = Location::where('year', $this->selectedYear)->with('crew')->get();
-            $this->previousDraws = [];
-            $this->previousGrid = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
-            $this->previousCrewName = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
+            $this->selectedDraw = $locations;
+            $this->selectedCrewLogo = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
+            $this->selectedName = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
 
             foreach ($locations as $location) {
                 if ($location->crew && $location->crew->isNotEmpty()) {
-                    $this->previousGrid[$location->y][$location->x] = $location->crew->first()->logo;
-                    $this->previousCrewName[$location->y][$location->x] = $location->crew->first()->name;
+                    $this->selectedCrewLogo[$location->y][$location->x] = $location->crew->first()->logo;
+                    $this->selectedName[$location->y][$location->x] = $location->crew->first()->name;
                 }
             }
         }
     }
     
-    // Cargar la cuadrícula con las ubicaciones existentes
+    // With the grid variable, you load the actual draw in a query
     public function loadGrid()
     {
-        // Inicializar la cuadrícula vacía
-        $this->grid = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
-        $this->crewName = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
-        // Obtener las ubicaciones para el año actual con la relación "crews"
         $locations = Location::where('year', $this->actualYear)->with('crew')->get();
         
-        // Si hay ubicaciones, deshabilitar el botón de sorteo
+        $this->grid = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
+        $this->crewName = array_fill(0, $this->MAX_HEIGHT, array_fill(0, $this->MAX_WIDTH, null));
+        
+        
+        // Disable the buttons
         if ($locations->count() > 0) {
             $this->showDrawButton = false;
             $this->showDraw = true;
         }
     
-        // Llenar la cuadrícula con las ubicaciones existentes
         foreach ($locations as $location) {
             if ($location->crew && $location->crew->isNotEmpty()) {
                 $this->grid[$location->y][$location->x] = $location->crew->first()->logo;
@@ -69,6 +71,7 @@ class DrawsPanel extends Component
         }
     }
     
+    // The logic for send the draw data to the database, nothing else
     public function draw()
     {
         // Obtener todas las peñas
@@ -96,7 +99,6 @@ class DrawsPanel extends Component
         }
         
         
-        // Crear la ubicación    
         foreach ($places as $crewId => $coord) {
             $location = Location::create([
                 'x' => $coord[0],
@@ -104,17 +106,18 @@ class DrawsPanel extends Component
                 'year' => $this->actualYear,
             ]);
     
-            // Relacionar la ubicación con la peña en la tabla draws
             $location->crew()->attach($crewId);
         }
     
-        // Recargar la cuadrícula
         $this->loadGrid();
         $this->showDrawButton = false;
         $this->showDraw = true;
+        $this->years = Location::distinct()->pluck('year')->toArray();
         session()->flash('success', 'Sorteo realizado ✅');
+        return redirect()->route('raffle');
     }
 
+    // The logic for reset the actual draw if do you want
     public function resetThisYearCrews(){
         $locations = Location::where('year', $this->actualYear)->get();
 
@@ -123,14 +126,22 @@ class DrawsPanel extends Component
             $location->delete();
         }
     
-        // Recargar la cuadrícula
         $this->loadGrid();
         $this->showDrawButton = true;
         $this->showDraw = false;
+
+        $this->years = Location::distinct()->pluck('year')->toArray();
+
+        // Restablecer la selección del año si el año actual se ha eliminado
+        if (!in_array($this->actualYear, $this->years)) {
+            $this->selectedYear = null;
+        }
+
         session()->flash('success', 'Sorteo reiniciado ✅');
+        return redirect()->route('raffle');
     }
 
-    // Validar si una coordenada ya está ocupada
+    // This is a variable for validate the coordinates, in work per now
     private function validCoords($coord, $places)
     {
         return !in_array($coord, $places);
